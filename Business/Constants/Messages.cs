@@ -69,6 +69,10 @@
         public static string SendDataUpdated = "Gönderilen data güncellendi";
         public static string SendDataAdded = "Gönderilen data başarıyla kaydedildi";
 
+        public static string MemberDeleted = "Üye bilgileri başarıyla silindi";
+        public static string MemberUpdated = "Üye bilgileri güncellendi";
+        public static string MemberAdded = "Üye başarıyla kaydedildi";
+
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string UserWrongPassword = "Kullanıcı adı veya şifre yanlış";
         public static string UserAdded = "Kullanıcı başarıyla sisteme eklendi";

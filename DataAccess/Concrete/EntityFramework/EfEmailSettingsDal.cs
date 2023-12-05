@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfDB41Dal : EfEntityRepositoryBase<DB41, IBKSContext>, IDB41Dal { }
+    public class EfEmailSettingsDal : EfEntityRepositoryBase<EmailSettings, IBKSContext>, IEmailSettings { }
 }

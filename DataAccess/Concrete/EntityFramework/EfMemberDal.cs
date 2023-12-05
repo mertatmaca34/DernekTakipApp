@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCalibrationDal : EfEntityRepositoryBase<Calibration, IBKSContext>, ICalibrationDal { }
+    public class EfMemberDal : EfEntityRepositoryBase<Member, IBKSContext>, IMemberDal { }
 }

@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfPlcDal : EfEntityRepositoryBase<Plc, IBKSContext>, IPlcDal { }
+    public class EfDuePaymentDal : EfEntityRepositoryBase<DuePayment, IBKSContext>, IDuePaymentDal { }
 }
