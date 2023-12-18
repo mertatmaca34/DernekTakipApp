@@ -7,7 +7,7 @@ namespace DataAccess.Concrete.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=IBKSContext;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=DernekTakipContext;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
 
         public DbSet<Member> Members { get; set; }
