@@ -57,7 +57,7 @@ namespace Business.Concrete
 
             if (res != null)
             {
-                return new SuccessDataResult<Due>(_dueDal.Get(filter));
+                return new SuccessDataResult<Due>(_dueDal.Get(filter!));
             }
             else
             {

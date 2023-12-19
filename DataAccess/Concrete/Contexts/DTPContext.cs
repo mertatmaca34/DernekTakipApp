@@ -15,9 +15,9 @@ namespace DataAccess.Concrete.Contexts
             modelBuilder.Entity<Member>().HasKey(m => m.TcKimlik);
         }
 
-        public DbSet<Member> Members { get; set; }
-        public DbSet<Due> Dues { get; set; }
-        public DbSet<DuePayment> DuePayments { get; set; }
-        public DbSet<EmailSettings> EmailSettings { get; set; }
+        public DbSet<Member>? Members { get; set; }
+        public DbSet<Due>? Dues { get; set; }
+        public DbSet<DuePayment>? DuePayments { get; set; }
+        public DbSet<EmailSettings>? EmailSettings { get; set; }
     }
 }

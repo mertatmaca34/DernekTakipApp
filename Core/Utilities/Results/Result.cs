@@ -10,6 +10,7 @@
         public Result(bool success)
         {
             Success = success;
+            Message = "";
         }
 
         public bool Success { get; }
