@@ -17,24 +17,26 @@ namespace Business.Concrete
             _dueDal = DueDal;
         }
 
-        public IResult Add(Due Due)
+        public IResult Add(Due due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
+            var result = BusinessRules.Run(CheckDueExist(due))!;
 
             if (result == null)
             {
-                this.Update(Due);
+                var filteredData = _dueDal.GetAll(d => d.Year == due.Year).FirstOrDefault();
+
+                due.Id = filteredData!.Id;
+
+                this.Update(due);
 
                 return new SuccessResult(Messages.DueUpdated);
             }
-            else if (result != null)
+            else
             {
-                _dueDal.Add(Due);
+                _dueDal.Add(due);
 
                 return new SuccessResult(Messages.DueAdded);
             }
-
-            return new ErrorResult(Messages.IncompleteInfo);
         }
 
         public IResult Delete(Due Due)
@@ -73,25 +75,16 @@ namespace Business.Concrete
 
         public IResult Update(Due Due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
+            _dueDal.Update(Due);
 
-            if (result == null)
-            {
-                _dueDal.Update(Due);
-
-                return new SuccessResult(Messages.DueUpdated);
-            }
-
-            this.Add(Due);
-
-            return new SuccessResult(Messages.DueAdded);
+            return new SuccessResult(Messages.DueUpdated);
         }
 
-        private IResult CheckDueExist(Due Due)
+        private IResult CheckDueExist(Due due)
         {
-            if (Due != null)
+            if (due != null)
             {
-                var filteredData = _dueDal.GetAll(d => d.Id == Due.Id).FirstOrDefault();
+                var filteredData = _dueDal.GetAll(d => d.Year == due.Year).FirstOrDefault();
 
                 if (filteredData != null)
                 {

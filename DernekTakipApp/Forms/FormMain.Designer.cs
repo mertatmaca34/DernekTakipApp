@@ -78,6 +78,7 @@
             ButtonMail.Text = "Mail";
             ButtonMail.TextAlign = ContentAlignment.BottomCenter;
             ButtonMail.UseVisualStyleBackColor = true;
+            ButtonMail.Click += ButtonMail_Click;
             // 
             // ButtonPayments
             // 
@@ -92,9 +93,10 @@
             ButtonPayments.Name = "ButtonPayments";
             ButtonPayments.Size = new Size(74, 68);
             ButtonPayments.TabIndex = 3;
-            ButtonPayments.Text = "Ödenenler";
+            ButtonPayments.Text = "Ödemeler";
             ButtonPayments.TextAlign = ContentAlignment.BottomCenter;
             ButtonPayments.UseVisualStyleBackColor = true;
+            ButtonPayments.Click += ButtonPayments_Click;
             // 
             // ButtonDues
             // 
