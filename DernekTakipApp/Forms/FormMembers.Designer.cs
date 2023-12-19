@@ -35,13 +35,13 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
-            button1 = new Button();
+            ButtonNewMember = new Button();
             textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
+            DataGridViewMembers = new DataGridView();
             EditColumn = new DataGridViewImageColumn();
             DeleteColumn = new DataGridViewImageColumn();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,9 +51,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 1, 0);
+            tableLayoutPanel1.Controls.Add(ButtonNewMember, 1, 0);
             tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel1.Controls.Add(dataGridView1, 0, 2);
+            tableLayoutPanel1.Controls.Add(DataGridViewMembers, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(86, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -75,17 +75,18 @@
             label1.TabIndex = 0;
             label1.Text = "Üyeler";
             // 
-            // button1
+            // ButtonNewMember
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.BackColor = Color.FromArgb(240, 236, 87);
-            button1.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(906, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 28);
-            button1.TabIndex = 1;
-            button1.Text = "YENİ KAYIT";
-            button1.UseVisualStyleBackColor = false;
+            ButtonNewMember.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonNewMember.BackColor = Color.FromArgb(240, 236, 87);
+            ButtonNewMember.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonNewMember.Location = new Point(906, 51);
+            ButtonNewMember.Name = "ButtonNewMember";
+            ButtonNewMember.Size = new Size(93, 28);
+            ButtonNewMember.TabIndex = 1;
+            ButtonNewMember.Text = "YENİ KAYIT";
+            ButtonNewMember.UseVisualStyleBackColor = false;
+            ButtonNewMember.Click += ButtonNewMember_Click;
             // 
             // textBox1
             // 
@@ -97,19 +98,19 @@
             textBox1.Size = new Size(302, 23);
             textBox1.TabIndex = 2;
             // 
-            // dataGridView1
+            // DataGridViewMembers
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
+            DataGridViewMembers.AllowUserToAddRows = false;
+            DataGridViewMembers.AllowUserToDeleteRows = false;
+            DataGridViewMembers.AllowUserToResizeColumns = false;
+            DataGridViewMembers.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            DataGridViewMembers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            DataGridViewMembers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DataGridViewMembers.BackgroundColor = Color.White;
+            DataGridViewMembers.BorderStyle = BorderStyle.None;
+            DataGridViewMembers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            DataGridViewMembers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(240, 236, 87);
             dataGridViewCellStyle2.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -118,10 +119,10 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 236, 87);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn });
-            tableLayoutPanel1.SetColumnSpan(dataGridView1, 2);
+            DataGridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            DataGridViewMembers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewMembers.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn });
+            tableLayoutPanel1.SetColumnSpan(DataGridViewMembers, 2);
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -129,16 +130,16 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 206, 168);
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.WhiteSmoke;
-            dataGridView1.Location = new Point(0, 117);
-            dataGridView1.Margin = new Padding(0);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            DataGridViewMembers.DefaultCellStyle = dataGridViewCellStyle3;
+            DataGridViewMembers.Dock = DockStyle.Fill;
+            DataGridViewMembers.EnableHeadersVisualStyles = false;
+            DataGridViewMembers.GridColor = Color.WhiteSmoke;
+            DataGridViewMembers.Location = new Point(0, 117);
+            DataGridViewMembers.Margin = new Padding(0);
+            DataGridViewMembers.MultiSelect = false;
+            DataGridViewMembers.Name = "DataGridViewMembers";
+            DataGridViewMembers.ReadOnly = true;
+            DataGridViewMembers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.White;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -146,20 +147,21 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.RowHeadersVisible = false;
+            DataGridViewMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            DataGridViewMembers.RowHeadersVisible = false;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridViewCellStyle5.Padding = new Padding(5);
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(227, 216, 126);
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridView1.RowTemplate.DividerHeight = 10;
-            dataGridView1.RowTemplate.Height = 50;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1002, 564);
-            dataGridView1.TabIndex = 3;
+            DataGridViewMembers.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            DataGridViewMembers.RowTemplate.DividerHeight = 10;
+            DataGridViewMembers.RowTemplate.Height = 50;
+            DataGridViewMembers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewMembers.Size = new Size(1002, 564);
+            DataGridViewMembers.TabIndex = 3;
+            DataGridViewMembers.CellContentClick += DataGridViewMembers_CellContentClick;
             // 
             // EditColumn
             // 
@@ -173,6 +175,7 @@
             // 
             // DeleteColumn
             // 
+            DeleteColumn.FillWeight = 30F;
             DeleteColumn.HeaderText = "";
             DeleteColumn.Image = Properties.Resources.waste_24px;
             DeleteColumn.Name = "DeleteColumn";
@@ -192,7 +195,7 @@
             Text = "FormMembers";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).EndInit();
             ResumeLayout(false);
         }
 
@@ -200,9 +203,9 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
-        private Button button1;
+        private Button ButtonNewMember;
         private TextBox textBox1;
-        private DataGridView dataGridView1;
+        private DataGridView DataGridViewMembers;
         private DataGridViewImageColumn EditColumn;
         private DataGridViewImageColumn DeleteColumn;
     }

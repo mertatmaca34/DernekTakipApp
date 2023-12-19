@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfDueDal : EfEntityRepositoryBase<Due, IBKSContext>, IDueDal { }
+    public class EfDueDal : EfEntityRepositoryBase<Due, DTPContext>, IDueDal { }
 }

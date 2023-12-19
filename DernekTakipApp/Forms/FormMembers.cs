@@ -1,20 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Business.Abstract;
+using Business.Constants;
+using Entities.Concrete;
 
 namespace DernekTakipApp.Forms
 {
     public partial class FormMembers : Form
     {
-        public FormMembers()
+        readonly IMemberManager _memberManager;
+
+        List<Member> _members;
+
+        public FormMembers(IMemberManager memberManager)
         {
             InitializeComponent();
+
+            _memberManager = memberManager;
+
+            _members = _memberManager.GetAll().Data.ToList();
+
+            DataGridViewMembers.DataSource = _members;
+
+            DataGridViewCustomization();
+        }
+
+        private void ButtonNewMember_Click(object sender, EventArgs e)
+        {
+            FormNewMember formNewMember = new FormNewMember(_memberManager);
+            formNewMember.ShowDialog();
+        }
+
+        private void DataGridViewCustomization()
+        {
+            _members = _memberManager.GetAll().Data.ToList();
+
+            DataGridViewMembers.DataSource = null;
+            DataGridViewMembers.DataSource = _members;
+
+            DataGridViewMembers.Columns[2].HeaderText = "TCKN";
+            DataGridViewMembers.Columns[3].HeaderText = "Ad Soyad";
+            DataGridViewMembers.Columns[4].HeaderText = "Kan Grubu";
+            DataGridViewMembers.Columns[5].HeaderText = "Şehir";
+            DataGridViewMembers.Columns[6].HeaderText = "Üyelik Durumu";
+
+            DataGridViewMembers.Refresh();
+        }
+
+        private void DataGridViewMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                var row = DataGridViewMembers.Rows[e.RowIndex];
+
+                string tckn = row.Cells[2].Value.ToString();
+                string nameSurname = row.Cells[3].Value.ToString();
+                string bloodGroup = row.Cells[4].Value.ToString();
+                string city = row.Cells[5].Value.ToString();
+                bool memberStatement = bool.Parse(row.Cells[6].Value.ToString());
+
+                FormNewMember formNewMember = new FormNewMember(_memberManager);
+
+                formNewMember.TextBoxTc.Text = tckn;
+                formNewMember.TextBoxName.Text = nameSurname;
+                formNewMember.ComboBoxBloodGroup.Text = bloodGroup;
+                formNewMember.ComboBoxCity.Text = city;
+                formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
+                formNewMember.ButtonDues.Enabled = true;
+                formNewMember.LabelHeaderText.Text = "Üye Düzenle";
+
+                formNewMember.Text = "Üye Düzenle";
+
+                formNewMember.ShowDialog(this);
+
+                DataGridViewCustomization();
+            }
+            else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+            {
+                var res = MessageBox.Show(Messages.MemberCheckDelete, Messages.CaptionWarning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (res == DialogResult.Yes)
+                {
+                    string tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
+
+                    Member member = new Member() { TcKimlik = tckn };
+
+                    var result = _memberManager.Delete(member);
+
+                    DataGridViewCustomization();
+
+                    MessageBox.Show(result.Message);
+                }
+            }
+
         }
     }
 }

@@ -103,6 +103,16 @@ namespace DernekTakipApp.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap mail_24px {
+            get {
+                object obj = ResourceManager.GetObject("mail_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap mail_outlined_24px {
             get {
                 object obj = ResourceManager.GetObject("mail_outlined_24px", resourceCulture);
@@ -113,9 +123,49 @@ namespace DernekTakipApp.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap management_24px {
+            get {
+                object obj = ResourceManager.GetObject("management_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap management_24px1 {
+            get {
+                object obj = ResourceManager.GetObject("management_24px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap people_24px {
             get {
                 object obj = ResourceManager.GetObject("people_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap stack_of_coins_24px {
+            get {
+                object obj = ResourceManager.GetObject("stack_of_coins_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction_24px {
+            get {
+                object obj = ResourceManager.GetObject("transaction_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

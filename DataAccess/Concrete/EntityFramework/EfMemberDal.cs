@@ -5,5 +5,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfMemberDal : EfEntityRepositoryBase<Member, IBKSContext>, IMemberDal { }
+    public class EfMemberDal : EfEntityRepositoryBase<Member, DTPContext>, IMemberDal { }
 }

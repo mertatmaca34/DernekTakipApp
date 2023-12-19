@@ -41,7 +41,7 @@ namespace Business.Concrete
         {
             IResult result = BusinessRules.Run(CheckMemberExist(Member));
 
-            if (result != null)
+            if (result == null)
             {
                 _memberDal.Delete(Member);
 
@@ -51,7 +51,7 @@ namespace Business.Concrete
             return new ErrorDataResult<Member>(Messages.InvalidDelete);
         }
 
-        public IDataResult<Member> Get()
+        public IDataResult<Member> Get(Expression<Func<Member, bool>> filter = null)
         {
             throw new NotImplementedException();
         }

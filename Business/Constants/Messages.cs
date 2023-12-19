@@ -14,6 +14,12 @@
         public static string ApiSendDataFault = "Tarihli veri gönderilemedi";
         public static string ApiLoginFailed = "Henüz API'ye giriş yapılmamış";
 
+        public static string CaptionInfo = "Bilgi";
+        public static string CaptionWarning = "Uyarı";
+        public static string CaptionError = "Hata";
+
+        public static string MemberCheckDelete = "Üye'yi silmek istediğinize emin misiniz?";
+
         public static string CalibrationAdded = "Kalibrasyon kaydedildi";
         public static string CalibrationNotAdded = "Kalibrasyon kaydedilemedi";
         public static string CalibrationNotFound = "Silinecek kalibrasyon bulunamadı";
