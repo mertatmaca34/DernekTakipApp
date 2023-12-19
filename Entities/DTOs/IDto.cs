@@ -1,6 +1,4 @@
 ﻿namespace Entities.DTOs
 {
-    public interface IDto
-    {
-    }
+    public interface IDto { }
 }

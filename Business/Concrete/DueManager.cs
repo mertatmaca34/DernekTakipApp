@@ -19,7 +19,7 @@ namespace Business.Concrete
 
         public IResult Add(Due Due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due));
+            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
 
             if (result == null)
             {
@@ -39,7 +39,7 @@ namespace Business.Concrete
 
         public IResult Delete(Due Due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due));
+            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
 
             if (result == null)
             {
@@ -51,11 +51,11 @@ namespace Business.Concrete
             return new ErrorDataResult<Due>(Messages.InvalidDelete);
         }
 
-        public IDataResult<Due> Get(Expression<Func<Due, bool>> filter)
+        public IDataResult<Due> Get(Expression<Func<Due, bool>>? filter)
         {
-            var res = _dueDal.Get(filter);
+            var res = _dueDal.Get(filter!);
 
-            if(res != null)
+            if (res != null)
             {
                 return new SuccessDataResult<Due>(_dueDal.Get(filter));
             }
@@ -66,14 +66,14 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<Due>> GetAll(Expression<Func<Due, bool>> filter)
+        public IDataResult<List<Due>> GetAll(Expression<Func<Due, bool>>? filter)
         {
-            return new SuccessDataResult<List<Due>>(_dueDal.GetAll(filter));
+            return new SuccessDataResult<List<Due>>(_dueDal.GetAll(filter!));
         }
 
         public IResult Update(Due Due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due));
+            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
 
             if (result == null)
             {
