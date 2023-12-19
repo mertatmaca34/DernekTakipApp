@@ -293,6 +293,7 @@
             ButtonDues.TabIndex = 4;
             ButtonDues.Text = "Üye Aidat Ödeme Durumu";
             ButtonDues.UseVisualStyleBackColor = true;
+            ButtonDues.Click += ButtonDues_Click;
             // 
             // ButtonSave
             // 

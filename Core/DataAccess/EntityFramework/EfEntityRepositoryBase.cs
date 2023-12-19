@@ -33,13 +33,13 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);
+                return context.Set<TEntity>().SingleOrDefault(filter)!;
             }
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
         {
-            using (TContext context = new TContext())
+            using (TContext context = new())
             {
                 return filter == null
                     ? context.Set<TEntity>().ToList()

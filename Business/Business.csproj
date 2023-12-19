@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CCS\" />
     <Folder Include="Services\" />
     <Folder Include="ValidationRules\FluentValidation\" />
   </ItemGroup>

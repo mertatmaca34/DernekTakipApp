@@ -79,6 +79,10 @@
         public static string MemberUpdated = "Üye bilgileri güncellendi";
         public static string MemberAdded = "Üye başarıyla kaydedildi";
 
+        public static string DueDeleted = "Aidat bilgileri başarıyla silindi";
+        public static string DueUpdated = "Aidat bilgileri güncellendi";
+        public static string DueAdded = "Aidat başarıyla kaydedildi";
+
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string UserWrongPassword = "Kullanıcı adı veya şifre yanlış";
         public static string UserAdded = "Kullanıcı başarıyla sisteme eklendi";

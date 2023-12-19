@@ -6,8 +6,8 @@ namespace Business.Abstract
 {
     public interface IDueManager
     {
-        IDataResult<List<Member>> GetAll(Expression<Func<Member, bool>> filter = null);
-        IDataResult<Due> Get();
+        IDataResult<List<Due>> GetAll(Expression<Func<Due, bool>>? filter = null);
+        IDataResult<Due> Get(Expression<Func<Due, bool>>? filter = null);
         IResult Add(Due due);
         IResult Update(Due due);
     }

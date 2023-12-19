@@ -51,11 +51,11 @@ namespace DernekTakipApp.Forms
             {
                 var row = DataGridViewMembers.Rows[e.RowIndex];
 
-                string tckn = row.Cells[2].Value.ToString();
-                string nameSurname = row.Cells[3].Value.ToString();
-                string bloodGroup = row.Cells[4].Value.ToString();
-                string city = row.Cells[5].Value.ToString();
-                bool memberStatement = bool.Parse(row.Cells[6].Value.ToString());
+                string tckn = row.Cells[2].Value.ToString()!;
+                string nameSurname = row.Cells[3].Value.ToString()!;
+                string bloodGroup = row.Cells[4].Value.ToString()!;
+                string city = row.Cells[5].Value.ToString()!;
+                bool memberStatement = bool.Parse(row.Cells[6].Value.ToString()!);
 
                 FormNewMember formNewMember = new FormNewMember(_memberManager);
 
@@ -81,7 +81,7 @@ namespace DernekTakipApp.Forms
                 {
                     string tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
 
-                    Member member = new Member() { TcKimlik = tckn };
+                    Member member = new() { TcKimlik = tckn };
 
                     var result = _memberManager.Delete(member);
 

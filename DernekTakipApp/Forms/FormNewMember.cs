@@ -49,5 +49,12 @@ namespace DernekTakipApp.Forms
 
             this.Close();
         }
+
+        private void ButtonDues_Click(object sender, EventArgs e)
+        {
+            FormMemberDues formMemberDues = new FormMemberDues();
+
+            formMemberDues.ShowDialog();
+        }
     }
 }

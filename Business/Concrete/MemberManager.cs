@@ -19,7 +19,7 @@ namespace Business.Concrete
 
         public IResult Add(Member Member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member));
+            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
 
             if (result == null)
             {
@@ -39,7 +39,7 @@ namespace Business.Concrete
 
         public IResult Delete(Member Member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member));
+            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
 
             if (result == null)
             {
@@ -51,21 +51,21 @@ namespace Business.Concrete
             return new ErrorDataResult<Member>(Messages.InvalidDelete);
         }
 
-        public IDataResult<Member> Get(Expression<Func<Member, bool>> filter = null)
+        public IDataResult<Member> Get(Expression<Func<Member, bool>>? filter = null)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Member>(_memberDal.Get(filter!));
         }
 
-        public IDataResult<List<Member>> GetAll(Expression<Func<Member, bool>> filter = null)
+        public IDataResult<List<Member>> GetAll(Expression<Func<Member, bool>>? filter = null)
         {
-            return new SuccessDataResult<List<Member>>(_memberDal.GetAll(filter));
+            return new SuccessDataResult<List<Member>>(_memberDal.GetAll(filter!));
         }
 
         public IResult Update(Member Member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member));
+            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
 
-            if (result == null)
+            if (result.Success)
             {
                 _memberDal.Update(Member);
 

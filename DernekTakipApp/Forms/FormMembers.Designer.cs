@@ -68,10 +68,10 @@
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Calibri", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(3, 49);
             label1.Name = "label1";
-            label1.Size = new Size(94, 33);
+            label1.Size = new Size(91, 33);
             label1.TabIndex = 0;
             label1.Text = "Üyeler";
             // 
@@ -79,7 +79,7 @@
             // 
             ButtonNewMember.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonNewMember.BackColor = Color.FromArgb(240, 236, 87);
-            ButtonNewMember.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonNewMember.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonNewMember.Location = new Point(906, 51);
             ButtonNewMember.Name = "ButtonNewMember";
             ButtonNewMember.Size = new Size(93, 28);
@@ -91,7 +91,7 @@
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Right;
-            textBox1.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             textBox1.Location = new Point(697, 88);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Ara";

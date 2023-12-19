@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             TableLayoutPanelLeftBar = new TableLayoutPanel();
             ButtonMail = new Button();
             ButtonPayments = new Button();
@@ -111,6 +112,7 @@
             ButtonDues.Text = "Aidatlar";
             ButtonDues.TextAlign = ContentAlignment.BottomCenter;
             ButtonDues.UseVisualStyleBackColor = true;
+            ButtonDues.Click += ButtonDues_Click;
             // 
             // ButtonMembers
             // 
@@ -130,6 +132,7 @@
             ButtonMembers.Text = "Üyeler";
             ButtonMembers.TextAlign = ContentAlignment.BottomCenter;
             ButtonMembers.UseVisualStyleBackColor = false;
+            ButtonMembers.Click += ButtonMembers_Click;
             // 
             // PanelContent
             // 
@@ -147,6 +150,7 @@
             ClientSize = new Size(1264, 681);
             Controls.Add(PanelContent);
             Controls.Add(TableLayoutPanelLeftBar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dernek Takip Programı";
