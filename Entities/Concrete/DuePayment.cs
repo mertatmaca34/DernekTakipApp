@@ -5,7 +5,7 @@ namespace Entities.Concrete
     public class DuePayment : IEntity
     {
         public int Id { get; set; }
-        public int MemberTC {  get; set; }
+        public string? MemberTC {  get; set; }
         public string? Year { get; set; }
         public double OcakAidat { get; set; }
         public double SubatAidat { get; set; }

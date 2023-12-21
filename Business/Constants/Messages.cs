@@ -83,6 +83,10 @@
         public static string DueUpdated = "Aidat bilgileri güncellendi";
         public static string DueAdded = "Aidat başarıyla kaydedildi";
 
+        public static string DuePaymentDeleted = "Aidat bilgileri başarıyla silindi";
+        public static string DuePaymentUpdated = "Aidat bilgileri güncellendi";
+        public static string DuePaymentAdded = "Aidat başarıyla kaydedildi";
+
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string UserWrongPassword = "Kullanıcı adı veya şifre yanlış";
         public static string UserAdded = "Kullanıcı başarıyla sisteme eklendi";
