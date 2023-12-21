@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using DernekTakipApp.Utils;
 using Entities.Concrete;
-using System.Diagnostics.Metrics;
 
 namespace DernekTakipApp.Forms
 {
@@ -21,6 +20,7 @@ namespace DernekTakipApp.Forms
             _member = member;
 
             ComboBoxYear.Text = "2023";
+            LabelMemberName.Text = $"ÜYE: {_member.AdSoyad}";
 
             AssignDefaultValues(member);
         }
@@ -28,6 +28,7 @@ namespace DernekTakipApp.Forms
         private void AssignDefaultValues(Member member)
         {
             AssignDues();
+            AssignDebts();
 
             DuePayment selectedYearDuePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text && d.MemberTC == member.TcKimlik).Data;
 
@@ -48,20 +49,39 @@ namespace DernekTakipApp.Forms
 
         private void AssignDues()
         {
-            var selectedYearDues = _dueManager.Get(d => d.Year == ComboBoxYear.Text);
+            Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
 
-            LabelOcakAidat.Text = selectedYearDues.Data?.OcakAidat.ToString() ?? "0";
-            LabelSubatAidat.Text = selectedYearDues.Data?.SubatAidat.ToString() ?? "0";
-            LabelMartAidat.Text = selectedYearDues.Data?.MartAidat.ToString() ?? "0";
-            LabelNisanAidat.Text = selectedYearDues.Data?.NisanAidat.ToString() ?? "0";
-            LabelMayisAidat.Text = selectedYearDues.Data?.MayisAidat.ToString() ?? "0";
-            LabelHaziranAidat.Text = selectedYearDues.Data?.HaziranAidat.ToString() ?? "0";
-            LabelTemmuzAidat.Text = selectedYearDues.Data?.TemmuzAidat.ToString() ?? "0";
-            LabelAgustosAidat.Text = selectedYearDues.Data?.AgustosAidat.ToString() ?? "0";
-            LabelEylulAidat.Text = selectedYearDues.Data?.EylulAidat.ToString() ?? "0";
-            LabelEkimAidat.Text = selectedYearDues.Data?.EkimAidat.ToString() ?? "0";
-            LabelKasimAidat.Text = selectedYearDues.Data?.KasimAidat.ToString() ?? "0";
-            LabelAralikAidat.Text = selectedYearDues.Data?.AralikAidat.ToString() ?? "0";
+            LabelOcakAidat.Text = dues?.OcakAidat.ToString() ?? "0";
+            LabelSubatAidat.Text = dues?.SubatAidat.ToString() ?? "0";
+            LabelMartAidat.Text = dues?.MartAidat.ToString() ?? "0";
+            LabelNisanAidat.Text = dues?.NisanAidat.ToString() ?? "0";
+            LabelMayisAidat.Text = dues?.MayisAidat.ToString() ?? "0";
+            LabelHaziranAidat.Text = dues?.HaziranAidat.ToString() ?? "0";
+            LabelTemmuzAidat.Text = dues?.TemmuzAidat.ToString() ?? "0";
+            LabelAgustosAidat.Text = dues?.AgustosAidat.ToString() ?? "0";
+            LabelEylulAidat.Text = dues?.EylulAidat.ToString() ?? "0";
+            LabelEkimAidat.Text = dues?.EkimAidat.ToString() ?? "0";
+            LabelKasimAidat.Text = dues?.KasimAidat.ToString() ?? "0";
+            LabelAralikAidat.Text = dues?.AralikAidat.ToString() ?? "0";
+        }
+
+        private void AssignDebts()
+        {
+            DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
+            Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
+
+            LabelOcakKalan.Text = $"{dues.OcakAidat - duePayment.OcakAidat}";
+            LabelSubatKalan.Text = $"{dues.SubatAidat - duePayment.SubatAidat}";
+            LabelMartKalan.Text = $"{dues.MartAidat - duePayment.MartAidat}";
+            LabelNisanKalan.Text = $"{dues.NisanAidat - duePayment.NisanAidat}";
+            LabelMayisKalan.Text = $"{dues.MayisAidat - duePayment.MayisAidat}";
+            LabelHaziranKalan.Text = $"{dues.HaziranAidat - duePayment.HaziranAidat}";
+            LabelTemmuzKalan.Text = $"{dues.TemmuzAidat - duePayment.TemmuzAidat}";
+            LabelAgustosKalan.Text = $"{dues.AgustosAidat - duePayment.AgustosAidat}";
+            LabelEylulKalan.Text = $"{dues.EylulAidat - duePayment.EylulAidat}";
+            LabelEkimKalan.Text = $"{dues.EkimAidat - duePayment.EkimAidat}";
+            LabelKasimKalan.Text = $"{dues.KasimAidat - duePayment.KasimAidat}";
+            LabelAralikKalan.Text = $"{dues.AralikAidat - duePayment.AralikAidat}";
         }
 
         private void ComboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,6 +125,8 @@ namespace DernekTakipApp.Forms
             var res = _duePaymentManager.Add(duePayment);
 
             MessageBox.Show(res.Message);
+
+            this.Close();
         }
     }
 }

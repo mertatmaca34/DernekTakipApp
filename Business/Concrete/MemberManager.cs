@@ -65,7 +65,7 @@ namespace Business.Concrete
         {
             IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
 
-            if (result.Success)
+            if (result == null)
             {
                 _memberDal.Update(Member);
 

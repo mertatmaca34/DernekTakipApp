@@ -88,6 +88,7 @@
             TextBoxAralikOdenen = new TextBox();
             ComboBoxYear = new ComboBox();
             ButtonSave = new Button();
+            LabelMemberName = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -98,9 +99,10 @@
             panel1.BackColor = Color.FromArgb(235, 235, 235);
             tableLayoutPanel1.SetColumnSpan(panel1, 2);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(38, 127);
+            panel1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            panel1.Location = new Point(43, 135);
             panel1.Name = "panel1";
-            panel1.Size = new Size(727, 1);
+            panel1.Size = new Size(723, 1);
             panel1.TabIndex = 0;
             // 
             // LabelHeaderText
@@ -108,11 +110,11 @@
             LabelHeaderText.Anchor = AnchorStyles.Bottom;
             LabelHeaderText.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(LabelHeaderText, 2);
-            LabelHeaderText.Font = new Font("Bahnschrift", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelHeaderText.Location = new Point(242, 81);
-            LabelHeaderText.Margin = new Padding(3, 0, 3, 10);
+            LabelHeaderText.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelHeaderText.Location = new Point(230, 84);
+            LabelHeaderText.Margin = new Padding(3, 0, 3, 11);
             LabelHeaderText.Name = "LabelHeaderText";
-            LabelHeaderText.Size = new Size(319, 33);
+            LabelHeaderText.Size = new Size(349, 37);
             LabelHeaderText.TabIndex = 1;
             LabelHeaderText.Text = "Üye Aidat Ödeme Tablosu";
             // 
@@ -127,17 +129,18 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 3);
             tableLayoutPanel1.Controls.Add(ComboBoxYear, 1, 0);
             tableLayoutPanel1.Controls.Add(ButtonSave, 1, 4);
+            tableLayoutPanel1.Controls.Add(LabelMemberName, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(35);
+            tableLayoutPanel1.Padding = new Padding(40, 40, 40, 40);
             tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.54167F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 2F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 86.45833F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel1.Size = new Size(803, 578);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.Size = new Size(809, 591);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -199,7 +202,8 @@
             tableLayoutPanel2.Controls.Add(TextBoxKasimOdenen, 2, 11);
             tableLayoutPanel2.Controls.Add(TextBoxAralikOdenen, 2, 12);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(38, 129);
+            tableLayoutPanel2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            tableLayoutPanel2.Location = new Point(43, 137);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 13;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 7.692309F));
@@ -215,18 +219,18 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 7.692309F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 7.692309F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 7.692309F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(727, 375);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel2.Size = new Size(723, 370);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(74, 35);
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(71, 34);
             label4.Name = "label4";
-            label4.Size = new Size(33, 15);
+            label4.Size = new Size(38, 17);
             label4.TabIndex = 4;
             label4.Text = "Ocak";
             // 
@@ -244,22 +248,23 @@
             tableLayoutPanel3.Controls.Add(label3, 1, 0);
             tableLayoutPanel3.Controls.Add(label1, 2, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             tableLayoutPanel3.Location = new Point(1, 1);
             tableLayoutPanel3.Margin = new Padding(0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(725, 27);
+            tableLayoutPanel3.Size = new Size(721, 27);
             tableLayoutPanel3.TabIndex = 0;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(80, 6);
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(78, 5);
             label2.Name = "label2";
-            label2.Size = new Size(21, 15);
+            label2.Size = new Size(24, 17);
             label2.TabIndex = 4;
             label2.Text = "Ay";
             // 
@@ -267,10 +272,10 @@
             // 
             label16.Anchor = AnchorStyles.None;
             label16.AutoSize = true;
-            label16.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(602, 6);
+            label16.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.Location = new Point(594, 5);
             label16.Name = "label16";
-            label16.Size = new Size(63, 15);
+            label16.Size = new Size(73, 17);
             label16.TabIndex = 4;
             label16.Text = "Kalan Borç";
             // 
@@ -278,10 +283,10 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(236, 6);
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(229, 5);
             label3.Name = "label3";
-            label3.Size = new Size(70, 15);
+            label3.Size = new Size(81, 17);
             label3.TabIndex = 4;
             label3.Text = "Aidat Tutarı";
             // 
@@ -289,10 +294,10 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(427, 6);
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(422, 5);
             label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.Size = new Size(56, 17);
             label1.TabIndex = 4;
             label1.Text = "Ödenen";
             // 
@@ -300,10 +305,10 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(72, 63);
+            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(69, 62);
             label5.Name = "label5";
-            label5.Size = new Size(38, 15);
+            label5.Size = new Size(43, 17);
             label5.TabIndex = 4;
             label5.Text = "Şubat";
             // 
@@ -311,10 +316,10 @@
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(74, 91);
+            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(72, 90);
             label6.Name = "label6";
-            label6.Size = new Size(34, 15);
+            label6.Size = new Size(37, 17);
             label6.TabIndex = 4;
             label6.Text = "Mart";
             // 
@@ -322,10 +327,10 @@
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(72, 119);
+            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(69, 118);
             label7.Name = "label7";
-            label7.Size = new Size(37, 15);
+            label7.Size = new Size(43, 17);
             label7.TabIndex = 4;
             label7.Text = "Nisan";
             // 
@@ -333,10 +338,10 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
-            label8.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(72, 147);
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(68, 146);
             label8.Name = "label8";
-            label8.Size = new Size(38, 15);
+            label8.Size = new Size(44, 17);
             label8.TabIndex = 4;
             label8.Text = "Mayıs";
             // 
@@ -344,10 +349,10 @@
             // 
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
-            label9.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(67, 175);
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(63, 174);
             label9.Name = "label9";
-            label9.Size = new Size(47, 15);
+            label9.Size = new Size(55, 17);
             label9.TabIndex = 4;
             label9.Text = "Haziran";
             // 
@@ -355,10 +360,10 @@
             // 
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
-            label10.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(64, 203);
+            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(60, 202);
             label10.Name = "label10";
-            label10.Size = new Size(53, 15);
+            label10.Size = new Size(60, 17);
             label10.TabIndex = 4;
             label10.Text = "Temmuz";
             // 
@@ -366,10 +371,10 @@
             // 
             label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
-            label11.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(66, 231);
+            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(61, 230);
             label11.Name = "label11";
-            label11.Size = new Size(50, 15);
+            label11.Size = new Size(58, 17);
             label11.TabIndex = 4;
             label11.Text = "Ağustos";
             // 
@@ -377,10 +382,10 @@
             // 
             label12.Anchor = AnchorStyles.None;
             label12.AutoSize = true;
-            label12.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(75, 259);
+            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(71, 258);
             label12.Name = "label12";
-            label12.Size = new Size(32, 15);
+            label12.Size = new Size(38, 17);
             label12.TabIndex = 4;
             label12.Text = "Eylül";
             // 
@@ -388,10 +393,10 @@
             // 
             label13.Anchor = AnchorStyles.None;
             label13.AutoSize = true;
-            label13.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(74, 287);
+            label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(71, 286);
             label13.Name = "label13";
-            label13.Size = new Size(33, 15);
+            label13.Size = new Size(38, 17);
             label13.TabIndex = 4;
             label13.Text = "Ekim";
             // 
@@ -399,10 +404,10 @@
             // 
             label14.Anchor = AnchorStyles.None;
             label14.AutoSize = true;
-            label14.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(71, 315);
+            label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.Location = new Point(68, 314);
             label14.Name = "label14";
-            label14.Size = new Size(39, 15);
+            label14.Size = new Size(45, 17);
             label14.TabIndex = 4;
             label14.Text = "Kasım";
             // 
@@ -410,10 +415,10 @@
             // 
             label15.Anchor = AnchorStyles.None;
             label15.AutoSize = true;
-            label15.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(72, 348);
+            label15.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(68, 344);
             label15.Name = "label15";
-            label15.Size = new Size(38, 15);
+            label15.Size = new Size(44, 17);
             label15.TabIndex = 4;
             label15.Text = "Aralık";
             // 
@@ -421,10 +426,10 @@
             // 
             LabelOcakAidat.Anchor = AnchorStyles.None;
             LabelOcakAidat.AutoSize = true;
-            LabelOcakAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelOcakAidat.Location = new Point(257, 35);
+            LabelOcakAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelOcakAidat.Location = new Point(253, 34);
             LabelOcakAidat.Name = "LabelOcakAidat";
-            LabelOcakAidat.Size = new Size(29, 15);
+            LabelOcakAidat.Size = new Size(34, 17);
             LabelOcakAidat.TabIndex = 4;
             LabelOcakAidat.Text = "0 TL";
             // 
@@ -432,10 +437,10 @@
             // 
             LabelSubatAidat.Anchor = AnchorStyles.None;
             LabelSubatAidat.AutoSize = true;
-            LabelSubatAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSubatAidat.Location = new Point(257, 63);
+            LabelSubatAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelSubatAidat.Location = new Point(253, 62);
             LabelSubatAidat.Name = "LabelSubatAidat";
-            LabelSubatAidat.Size = new Size(29, 15);
+            LabelSubatAidat.Size = new Size(34, 17);
             LabelSubatAidat.TabIndex = 4;
             LabelSubatAidat.Text = "0 TL";
             // 
@@ -443,10 +448,10 @@
             // 
             LabelMartAidat.Anchor = AnchorStyles.None;
             LabelMartAidat.AutoSize = true;
-            LabelMartAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelMartAidat.Location = new Point(257, 91);
+            LabelMartAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelMartAidat.Location = new Point(253, 90);
             LabelMartAidat.Name = "LabelMartAidat";
-            LabelMartAidat.Size = new Size(29, 15);
+            LabelMartAidat.Size = new Size(34, 17);
             LabelMartAidat.TabIndex = 4;
             LabelMartAidat.Text = "0 TL";
             // 
@@ -454,10 +459,10 @@
             // 
             LabelNisanAidat.Anchor = AnchorStyles.None;
             LabelNisanAidat.AutoSize = true;
-            LabelNisanAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelNisanAidat.Location = new Point(257, 119);
+            LabelNisanAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelNisanAidat.Location = new Point(253, 118);
             LabelNisanAidat.Name = "LabelNisanAidat";
-            LabelNisanAidat.Size = new Size(29, 15);
+            LabelNisanAidat.Size = new Size(34, 17);
             LabelNisanAidat.TabIndex = 4;
             LabelNisanAidat.Text = "0 TL";
             // 
@@ -465,10 +470,10 @@
             // 
             LabelMayisAidat.Anchor = AnchorStyles.None;
             LabelMayisAidat.AutoSize = true;
-            LabelMayisAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelMayisAidat.Location = new Point(257, 147);
+            LabelMayisAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelMayisAidat.Location = new Point(253, 146);
             LabelMayisAidat.Name = "LabelMayisAidat";
-            LabelMayisAidat.Size = new Size(29, 15);
+            LabelMayisAidat.Size = new Size(34, 17);
             LabelMayisAidat.TabIndex = 4;
             LabelMayisAidat.Text = "0 TL";
             // 
@@ -476,10 +481,10 @@
             // 
             LabelHaziranAidat.Anchor = AnchorStyles.None;
             LabelHaziranAidat.AutoSize = true;
-            LabelHaziranAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelHaziranAidat.Location = new Point(257, 175);
+            LabelHaziranAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelHaziranAidat.Location = new Point(253, 174);
             LabelHaziranAidat.Name = "LabelHaziranAidat";
-            LabelHaziranAidat.Size = new Size(29, 15);
+            LabelHaziranAidat.Size = new Size(34, 17);
             LabelHaziranAidat.TabIndex = 4;
             LabelHaziranAidat.Text = "0 TL";
             // 
@@ -487,10 +492,10 @@
             // 
             LabelTemmuzAidat.Anchor = AnchorStyles.None;
             LabelTemmuzAidat.AutoSize = true;
-            LabelTemmuzAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTemmuzAidat.Location = new Point(257, 203);
+            LabelTemmuzAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTemmuzAidat.Location = new Point(253, 202);
             LabelTemmuzAidat.Name = "LabelTemmuzAidat";
-            LabelTemmuzAidat.Size = new Size(29, 15);
+            LabelTemmuzAidat.Size = new Size(34, 17);
             LabelTemmuzAidat.TabIndex = 4;
             LabelTemmuzAidat.Text = "0 TL";
             // 
@@ -498,10 +503,10 @@
             // 
             LabelAgustosAidat.Anchor = AnchorStyles.None;
             LabelAgustosAidat.AutoSize = true;
-            LabelAgustosAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAgustosAidat.Location = new Point(257, 231);
+            LabelAgustosAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAgustosAidat.Location = new Point(253, 230);
             LabelAgustosAidat.Name = "LabelAgustosAidat";
-            LabelAgustosAidat.Size = new Size(29, 15);
+            LabelAgustosAidat.Size = new Size(34, 17);
             LabelAgustosAidat.TabIndex = 4;
             LabelAgustosAidat.Text = "0 TL";
             // 
@@ -509,10 +514,10 @@
             // 
             LabelEylulAidat.Anchor = AnchorStyles.None;
             LabelEylulAidat.AutoSize = true;
-            LabelEylulAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelEylulAidat.Location = new Point(257, 259);
+            LabelEylulAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelEylulAidat.Location = new Point(253, 258);
             LabelEylulAidat.Name = "LabelEylulAidat";
-            LabelEylulAidat.Size = new Size(29, 15);
+            LabelEylulAidat.Size = new Size(34, 17);
             LabelEylulAidat.TabIndex = 4;
             LabelEylulAidat.Text = "0 TL";
             // 
@@ -520,10 +525,10 @@
             // 
             LabelEkimAidat.Anchor = AnchorStyles.None;
             LabelEkimAidat.AutoSize = true;
-            LabelEkimAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelEkimAidat.Location = new Point(257, 287);
+            LabelEkimAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelEkimAidat.Location = new Point(253, 286);
             LabelEkimAidat.Name = "LabelEkimAidat";
-            LabelEkimAidat.Size = new Size(29, 15);
+            LabelEkimAidat.Size = new Size(34, 17);
             LabelEkimAidat.TabIndex = 4;
             LabelEkimAidat.Text = "0 TL";
             // 
@@ -531,10 +536,10 @@
             // 
             LabelKasimAidat.Anchor = AnchorStyles.None;
             LabelKasimAidat.AutoSize = true;
-            LabelKasimAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelKasimAidat.Location = new Point(257, 315);
+            LabelKasimAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelKasimAidat.Location = new Point(253, 314);
             LabelKasimAidat.Name = "LabelKasimAidat";
-            LabelKasimAidat.Size = new Size(29, 15);
+            LabelKasimAidat.Size = new Size(34, 17);
             LabelKasimAidat.TabIndex = 4;
             LabelKasimAidat.Text = "0 TL";
             // 
@@ -542,10 +547,10 @@
             // 
             LabelAralikAidat.Anchor = AnchorStyles.None;
             LabelAralikAidat.AutoSize = true;
-            LabelAralikAidat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAralikAidat.Location = new Point(257, 348);
+            LabelAralikAidat.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAralikAidat.Location = new Point(253, 344);
             LabelAralikAidat.Name = "LabelAralikAidat";
-            LabelAralikAidat.Size = new Size(29, 15);
+            LabelAralikAidat.Size = new Size(34, 17);
             LabelAralikAidat.TabIndex = 4;
             LabelAralikAidat.Text = "0 TL";
             // 
@@ -553,10 +558,10 @@
             // 
             LabelOcakKalan.Anchor = AnchorStyles.None;
             LabelOcakKalan.AutoSize = true;
-            LabelOcakKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelOcakKalan.Location = new Point(620, 34);
+            LabelOcakKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelOcakKalan.Location = new Point(614, 34);
             LabelOcakKalan.Name = "LabelOcakKalan";
-            LabelOcakKalan.Size = new Size(30, 16);
+            LabelOcakKalan.Size = new Size(34, 17);
             LabelOcakKalan.TabIndex = 4;
             LabelOcakKalan.Text = "0 TL";
             // 
@@ -564,10 +569,10 @@
             // 
             LabelSubatKalan.Anchor = AnchorStyles.None;
             LabelSubatKalan.AutoSize = true;
-            LabelSubatKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSubatKalan.Location = new Point(620, 62);
+            LabelSubatKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelSubatKalan.Location = new Point(614, 62);
             LabelSubatKalan.Name = "LabelSubatKalan";
-            LabelSubatKalan.Size = new Size(30, 16);
+            LabelSubatKalan.Size = new Size(34, 17);
             LabelSubatKalan.TabIndex = 4;
             LabelSubatKalan.Text = "0 TL";
             // 
@@ -575,10 +580,10 @@
             // 
             LabelMartKalan.Anchor = AnchorStyles.None;
             LabelMartKalan.AutoSize = true;
-            LabelMartKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelMartKalan.Location = new Point(620, 90);
+            LabelMartKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelMartKalan.Location = new Point(614, 90);
             LabelMartKalan.Name = "LabelMartKalan";
-            LabelMartKalan.Size = new Size(30, 16);
+            LabelMartKalan.Size = new Size(34, 17);
             LabelMartKalan.TabIndex = 4;
             LabelMartKalan.Text = "0 TL";
             // 
@@ -586,10 +591,10 @@
             // 
             LabelNisanKalan.Anchor = AnchorStyles.None;
             LabelNisanKalan.AutoSize = true;
-            LabelNisanKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelNisanKalan.Location = new Point(620, 118);
+            LabelNisanKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelNisanKalan.Location = new Point(614, 118);
             LabelNisanKalan.Name = "LabelNisanKalan";
-            LabelNisanKalan.Size = new Size(30, 16);
+            LabelNisanKalan.Size = new Size(34, 17);
             LabelNisanKalan.TabIndex = 4;
             LabelNisanKalan.Text = "0 TL";
             // 
@@ -597,10 +602,10 @@
             // 
             LabelMayisKalan.Anchor = AnchorStyles.None;
             LabelMayisKalan.AutoSize = true;
-            LabelMayisKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelMayisKalan.Location = new Point(620, 146);
+            LabelMayisKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelMayisKalan.Location = new Point(614, 146);
             LabelMayisKalan.Name = "LabelMayisKalan";
-            LabelMayisKalan.Size = new Size(30, 16);
+            LabelMayisKalan.Size = new Size(34, 17);
             LabelMayisKalan.TabIndex = 4;
             LabelMayisKalan.Text = "0 TL";
             // 
@@ -608,10 +613,10 @@
             // 
             LabelHaziranKalan.Anchor = AnchorStyles.None;
             LabelHaziranKalan.AutoSize = true;
-            LabelHaziranKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelHaziranKalan.Location = new Point(620, 174);
+            LabelHaziranKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelHaziranKalan.Location = new Point(614, 174);
             LabelHaziranKalan.Name = "LabelHaziranKalan";
-            LabelHaziranKalan.Size = new Size(30, 16);
+            LabelHaziranKalan.Size = new Size(34, 17);
             LabelHaziranKalan.TabIndex = 4;
             LabelHaziranKalan.Text = "0 TL";
             // 
@@ -619,10 +624,10 @@
             // 
             LabelTemmuzKalan.Anchor = AnchorStyles.None;
             LabelTemmuzKalan.AutoSize = true;
-            LabelTemmuzKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTemmuzKalan.Location = new Point(620, 202);
+            LabelTemmuzKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTemmuzKalan.Location = new Point(614, 202);
             LabelTemmuzKalan.Name = "LabelTemmuzKalan";
-            LabelTemmuzKalan.Size = new Size(30, 16);
+            LabelTemmuzKalan.Size = new Size(34, 17);
             LabelTemmuzKalan.TabIndex = 4;
             LabelTemmuzKalan.Text = "0 TL";
             // 
@@ -630,10 +635,10 @@
             // 
             LabelAgustosKalan.Anchor = AnchorStyles.None;
             LabelAgustosKalan.AutoSize = true;
-            LabelAgustosKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAgustosKalan.Location = new Point(620, 230);
+            LabelAgustosKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAgustosKalan.Location = new Point(614, 230);
             LabelAgustosKalan.Name = "LabelAgustosKalan";
-            LabelAgustosKalan.Size = new Size(30, 16);
+            LabelAgustosKalan.Size = new Size(34, 17);
             LabelAgustosKalan.TabIndex = 4;
             LabelAgustosKalan.Text = "0 TL";
             // 
@@ -641,10 +646,10 @@
             // 
             LabelEylulKalan.Anchor = AnchorStyles.None;
             LabelEylulKalan.AutoSize = true;
-            LabelEylulKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelEylulKalan.Location = new Point(620, 258);
+            LabelEylulKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelEylulKalan.Location = new Point(614, 258);
             LabelEylulKalan.Name = "LabelEylulKalan";
-            LabelEylulKalan.Size = new Size(30, 16);
+            LabelEylulKalan.Size = new Size(34, 17);
             LabelEylulKalan.TabIndex = 4;
             LabelEylulKalan.Text = "0 TL";
             // 
@@ -652,10 +657,10 @@
             // 
             LabelEkimKalan.Anchor = AnchorStyles.None;
             LabelEkimKalan.AutoSize = true;
-            LabelEkimKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelEkimKalan.Location = new Point(620, 286);
+            LabelEkimKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelEkimKalan.Location = new Point(614, 286);
             LabelEkimKalan.Name = "LabelEkimKalan";
-            LabelEkimKalan.Size = new Size(30, 16);
+            LabelEkimKalan.Size = new Size(34, 17);
             LabelEkimKalan.TabIndex = 4;
             LabelEkimKalan.Text = "0 TL";
             // 
@@ -663,10 +668,10 @@
             // 
             LabelKasimKalan.Anchor = AnchorStyles.None;
             LabelKasimKalan.AutoSize = true;
-            LabelKasimKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelKasimKalan.Location = new Point(620, 314);
+            LabelKasimKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelKasimKalan.Location = new Point(614, 314);
             LabelKasimKalan.Name = "LabelKasimKalan";
-            LabelKasimKalan.Size = new Size(30, 16);
+            LabelKasimKalan.Size = new Size(34, 17);
             LabelKasimKalan.TabIndex = 4;
             LabelKasimKalan.Text = "0 TL";
             // 
@@ -674,130 +679,130 @@
             // 
             LabelAralikKalan.Anchor = AnchorStyles.None;
             LabelAralikKalan.AutoSize = true;
-            LabelAralikKalan.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelAralikKalan.Location = new Point(620, 347);
+            LabelAralikKalan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelAralikKalan.Location = new Point(614, 344);
             LabelAralikKalan.Name = "LabelAralikKalan";
-            LabelAralikKalan.Size = new Size(30, 16);
+            LabelAralikKalan.Size = new Size(34, 17);
             LabelAralikKalan.TabIndex = 4;
             LabelAralikKalan.Text = "0 TL";
             // 
             // TextBoxOcakOdenen
             // 
             TextBoxOcakOdenen.Anchor = AnchorStyles.None;
-            TextBoxOcakOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxOcakOdenen.Location = new Point(407, 32);
+            TextBoxOcakOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxOcakOdenen.Location = new Point(399, 32);
             TextBoxOcakOdenen.Name = "TextBoxOcakOdenen";
-            TextBoxOcakOdenen.Size = new Size(91, 23);
+            TextBoxOcakOdenen.Size = new Size(103, 25);
             TextBoxOcakOdenen.TabIndex = 5;
             TextBoxOcakOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxSubatOdenen
             // 
             TextBoxSubatOdenen.Anchor = AnchorStyles.None;
-            TextBoxSubatOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxSubatOdenen.Location = new Point(407, 60);
+            TextBoxSubatOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxSubatOdenen.Location = new Point(399, 60);
             TextBoxSubatOdenen.Name = "TextBoxSubatOdenen";
-            TextBoxSubatOdenen.Size = new Size(91, 23);
+            TextBoxSubatOdenen.Size = new Size(103, 25);
             TextBoxSubatOdenen.TabIndex = 5;
             TextBoxSubatOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxMartOdenen
             // 
             TextBoxMartOdenen.Anchor = AnchorStyles.None;
-            TextBoxMartOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxMartOdenen.Location = new Point(407, 88);
+            TextBoxMartOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxMartOdenen.Location = new Point(399, 88);
             TextBoxMartOdenen.Name = "TextBoxMartOdenen";
-            TextBoxMartOdenen.Size = new Size(91, 23);
+            TextBoxMartOdenen.Size = new Size(103, 25);
             TextBoxMartOdenen.TabIndex = 5;
             TextBoxMartOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxNisanOdenen
             // 
             TextBoxNisanOdenen.Anchor = AnchorStyles.None;
-            TextBoxNisanOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxNisanOdenen.Location = new Point(407, 116);
+            TextBoxNisanOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxNisanOdenen.Location = new Point(399, 116);
             TextBoxNisanOdenen.Name = "TextBoxNisanOdenen";
-            TextBoxNisanOdenen.Size = new Size(91, 23);
+            TextBoxNisanOdenen.Size = new Size(103, 25);
             TextBoxNisanOdenen.TabIndex = 5;
             TextBoxNisanOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxMayisOdenen
             // 
             TextBoxMayisOdenen.Anchor = AnchorStyles.None;
-            TextBoxMayisOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxMayisOdenen.Location = new Point(407, 144);
+            TextBoxMayisOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxMayisOdenen.Location = new Point(399, 144);
             TextBoxMayisOdenen.Name = "TextBoxMayisOdenen";
-            TextBoxMayisOdenen.Size = new Size(91, 23);
+            TextBoxMayisOdenen.Size = new Size(103, 25);
             TextBoxMayisOdenen.TabIndex = 5;
             TextBoxMayisOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxHaziranOdenen
             // 
             TextBoxHaziranOdenen.Anchor = AnchorStyles.None;
-            TextBoxHaziranOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxHaziranOdenen.Location = new Point(407, 172);
+            TextBoxHaziranOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxHaziranOdenen.Location = new Point(399, 172);
             TextBoxHaziranOdenen.Name = "TextBoxHaziranOdenen";
-            TextBoxHaziranOdenen.Size = new Size(91, 23);
+            TextBoxHaziranOdenen.Size = new Size(103, 25);
             TextBoxHaziranOdenen.TabIndex = 5;
             TextBoxHaziranOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxTemmuzOdenen
             // 
             TextBoxTemmuzOdenen.Anchor = AnchorStyles.None;
-            TextBoxTemmuzOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxTemmuzOdenen.Location = new Point(407, 200);
+            TextBoxTemmuzOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxTemmuzOdenen.Location = new Point(399, 200);
             TextBoxTemmuzOdenen.Name = "TextBoxTemmuzOdenen";
-            TextBoxTemmuzOdenen.Size = new Size(91, 23);
+            TextBoxTemmuzOdenen.Size = new Size(103, 25);
             TextBoxTemmuzOdenen.TabIndex = 5;
             TextBoxTemmuzOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxAgustosOdenen
             // 
             TextBoxAgustosOdenen.Anchor = AnchorStyles.None;
-            TextBoxAgustosOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxAgustosOdenen.Location = new Point(407, 228);
+            TextBoxAgustosOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxAgustosOdenen.Location = new Point(399, 228);
             TextBoxAgustosOdenen.Name = "TextBoxAgustosOdenen";
-            TextBoxAgustosOdenen.Size = new Size(91, 23);
+            TextBoxAgustosOdenen.Size = new Size(103, 25);
             TextBoxAgustosOdenen.TabIndex = 5;
             TextBoxAgustosOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxEylulOdenen
             // 
             TextBoxEylulOdenen.Anchor = AnchorStyles.None;
-            TextBoxEylulOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxEylulOdenen.Location = new Point(407, 256);
+            TextBoxEylulOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxEylulOdenen.Location = new Point(399, 256);
             TextBoxEylulOdenen.Name = "TextBoxEylulOdenen";
-            TextBoxEylulOdenen.Size = new Size(91, 23);
+            TextBoxEylulOdenen.Size = new Size(103, 25);
             TextBoxEylulOdenen.TabIndex = 5;
             TextBoxEylulOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxEkimOdenen
             // 
             TextBoxEkimOdenen.Anchor = AnchorStyles.None;
-            TextBoxEkimOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxEkimOdenen.Location = new Point(407, 284);
+            TextBoxEkimOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxEkimOdenen.Location = new Point(399, 284);
             TextBoxEkimOdenen.Name = "TextBoxEkimOdenen";
-            TextBoxEkimOdenen.Size = new Size(91, 23);
+            TextBoxEkimOdenen.Size = new Size(103, 25);
             TextBoxEkimOdenen.TabIndex = 5;
             TextBoxEkimOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxKasimOdenen
             // 
             TextBoxKasimOdenen.Anchor = AnchorStyles.None;
-            TextBoxKasimOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxKasimOdenen.Location = new Point(407, 312);
+            TextBoxKasimOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxKasimOdenen.Location = new Point(399, 312);
             TextBoxKasimOdenen.Name = "TextBoxKasimOdenen";
-            TextBoxKasimOdenen.Size = new Size(91, 23);
+            TextBoxKasimOdenen.Size = new Size(103, 25);
             TextBoxKasimOdenen.TabIndex = 5;
             TextBoxKasimOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxAralikOdenen
             // 
             TextBoxAralikOdenen.Anchor = AnchorStyles.None;
-            TextBoxAralikOdenen.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxAralikOdenen.Location = new Point(407, 344);
+            TextBoxAralikOdenen.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxAralikOdenen.Location = new Point(399, 340);
             TextBoxAralikOdenen.Name = "TextBoxAralikOdenen";
-            TextBoxAralikOdenen.Size = new Size(91, 23);
+            TextBoxAralikOdenen.Size = new Size(103, 25);
             TextBoxAralikOdenen.TabIndex = 5;
             TextBoxAralikOdenen.Text = " ";
             TextBoxAralikOdenen.TextAlign = HorizontalAlignment.Center;
@@ -806,12 +811,12 @@
             // 
             ComboBoxYear.Anchor = AnchorStyles.Right;
             ComboBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBoxYear.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ComboBoxYear.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             ComboBoxYear.FormattingEnabled = true;
             ComboBoxYear.Items.AddRange(new object[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", "2052", "2053", "2054", "2055", "2056", "2057", "2058", "2059", "2060", "2061", "2062", "2063", "2064", "2065", "2066", "2067", "2068", "2069", "2070", "2071", "2072", "2073", "2074", "2075", "2076", "2077", "2078", "2079", "2080", "2081", "2082", "2083", "2084", "2085", "2086", "2087", "2088", "2089", "2090", "2091", "2092", "2093", "2094", "2095", "2096", "2097", "2098", "2099", "2100" });
-            ComboBoxYear.Location = new Point(618, 38);
+            ComboBoxYear.Location = new Point(599, 44);
             ComboBoxYear.Name = "ComboBoxYear";
-            ComboBoxYear.Size = new Size(147, 23);
+            ComboBoxYear.Size = new Size(167, 25);
             ComboBoxYear.TabIndex = 5;
             ComboBoxYear.SelectedIndexChanged += ComboBoxYear_SelectedIndexChanged;
             // 
@@ -820,20 +825,31 @@
             ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonSave.BackColor = Color.FromArgb(240, 236, 87);
             ButtonSave.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonSave.Location = new Point(512, 510);
+            ButtonSave.Location = new Point(477, 513);
             ButtonSave.Name = "ButtonSave";
-            ButtonSave.Size = new Size(253, 30);
+            ButtonSave.Size = new Size(289, 34);
             ButtonSave.TabIndex = 8;
             ButtonSave.Text = "KAYDET";
             ButtonSave.UseVisualStyleBackColor = false;
             ButtonSave.Click += ButtonSave_Click;
             // 
+            // LabelMemberName
+            // 
+            LabelMemberName.AutoSize = true;
+            LabelMemberName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelMemberName.Location = new Point(43, 40);
+            LabelMemberName.Name = "LabelMemberName";
+            LabelMemberName.Size = new Size(40, 17);
+            LabelMemberName.TabIndex = 9;
+            LabelMemberName.Text = "ÜYE: ";
+            // 
             // FormMemberDues
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(803, 578);
+            ClientSize = new Size(809, 591);
             Controls.Add(tableLayoutPanel1);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FormMemberDues";
@@ -913,5 +929,6 @@
         private TextBox TextBoxEkimOdenen;
         private TextBox TextBoxKasimOdenen;
         private TextBox TextBoxAralikOdenen;
+        private Label LabelMemberName;
     }
 }
