@@ -374,6 +374,6 @@
         public ComboBox ComboBoxCity;
         public CheckBox CheckBoxMemberStatement;
         public Label LabelHeaderText;
-        private DateTimePicker dateTimePicker1;
+        public DateTimePicker dateTimePicker1;
     }
 }

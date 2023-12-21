@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Entities.Concrete;
+using System.Windows.Forms;
 
 namespace DernekTakipApp.Forms
 {
@@ -57,10 +58,11 @@ namespace DernekTakipApp.Forms
                 var row = DataGridViewMembers.Rows[e.RowIndex];
 
                 string tckn = row.Cells[3].Value.ToString()!;
-                string nameSurname = row.Cells[4].Value.ToString()!;
-                string bloodGroup = row.Cells[5].Value.ToString()!;
-                string city = row.Cells[6].Value.ToString()!;
-                bool memberStatement = bool.Parse(row.Cells[7].Value.ToString()!);
+                DateTime registerDate = Convert.ToDateTime(row.Cells[4].Value);
+                string nameSurname = row.Cells[5].Value.ToString()!;
+                string bloodGroup = row.Cells[6].Value.ToString()!;
+                string city = row.Cells[7].Value.ToString()!;
+                bool memberStatement = bool.Parse(row.Cells[8].Value.ToString()!);
 
                 FormNewMember formNewMember = new(_memberManager);
 
@@ -68,6 +70,7 @@ namespace DernekTakipApp.Forms
                 formNewMember.TextBoxName.Text = nameSurname;
                 formNewMember.ComboBoxBloodGroup.Text = bloodGroup;
                 formNewMember.ComboBoxCity.Text = city;
+                formNewMember.dateTimePicker1.Value = registerDate;
                 formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
                 formNewMember.LabelHeaderText.Text = "Üye Düzenle";
 

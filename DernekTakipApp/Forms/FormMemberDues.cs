@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DernekTakipApp.Utils;
 using Entities.Concrete;
+using System.Diagnostics.Metrics;
 
 namespace DernekTakipApp.Forms
 {
@@ -70,20 +71,44 @@ namespace DernekTakipApp.Forms
             DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
             Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
 
-            if(_member.UyelikTarihi == new DateTime(_member.UyelikTarihi.Value.Year, _member.UyelikTarihi.Month.Year,0))
+            int startMonth = _member.UyelikTarihi!.Value.Month;
+            int currentMonth = DateTime.Now.Month;
 
-            LabelOcakKalan.Text = $"{dues?.OcakAidat - duePayment?.OcakAidat}" ?? "0";
-            LabelSubatKalan.Text = $"{dues?.SubatAidat - duePayment?.SubatAidat}" ?? "0";
-            LabelMartKalan.Text = $"{dues?.MartAidat - duePayment?.MartAidat}" ?? "0";
-            LabelNisanKalan.Text = $"{dues?.NisanAidat - duePayment?.NisanAidat}" ?? "0";
-            LabelMayisKalan.Text = $"{dues?.MayisAidat - duePayment?.MayisAidat}" ?? "0";
-            LabelHaziranKalan.Text = $"{dues?.HaziranAidat - duePayment?.HaziranAidat}" ?? "0";
-            LabelTemmuzKalan.Text = $"{dues?.TemmuzAidat - duePayment?.TemmuzAidat}" ?? "0";
-            LabelAgustosKalan.Text = $"{dues?.AgustosAidat - duePayment?.AgustosAidat}" ?? "0";
-            LabelEylulKalan.Text = $"{dues?.EylulAidat - duePayment?.EylulAidat}" ?? "0";
-            LabelEkimKalan.Text = $"{dues?.EkimAidat - duePayment?.EkimAidat}" ?? "0";
-            LabelKasimKalan.Text = $"{dues?.KasimAidat - duePayment?.KasimAidat}" ?? "0";
-            LabelAralikKalan.Text = $"{dues?.AralikAidat - duePayment?.AralikAidat}" ?? "0";
+            LabelOcakKalan.Text = GetRemainingAmount(dues?.OcakAidat, duePayment?.OcakAidat, startMonth, 1, currentMonth);
+            LabelSubatKalan.Text = GetRemainingAmount(dues?.SubatAidat, duePayment?.SubatAidat, startMonth, 2, currentMonth);
+            LabelMartKalan.Text = GetRemainingAmount(dues?.MartAidat, duePayment?.MartAidat, startMonth, 3, currentMonth);
+            LabelNisanKalan.Text = GetRemainingAmount(dues?.NisanAidat, duePayment?.NisanAidat, startMonth, 4, currentMonth);
+            LabelMayisKalan.Text = GetRemainingAmount(dues?.MayisAidat, duePayment?.MayisAidat, startMonth, 5, currentMonth);
+            LabelHaziranKalan.Text = GetRemainingAmount(dues?.HaziranAidat, duePayment?.HaziranAidat, startMonth, 6, currentMonth);
+            LabelTemmuzKalan.Text = GetRemainingAmount(dues?.TemmuzAidat, duePayment?.TemmuzAidat, startMonth, 7, currentMonth);
+            LabelAgustosKalan.Text = GetRemainingAmount(dues?.AgustosAidat, duePayment?.AgustosAidat, startMonth, 8, currentMonth);
+            LabelEylulKalan.Text = GetRemainingAmount(dues?.EylulAidat, duePayment?.EylulAidat, startMonth, 9, currentMonth);
+            LabelEkimKalan.Text = GetRemainingAmount(dues?.EkimAidat, duePayment?.EkimAidat, startMonth, 10, currentMonth);
+            LabelKasimKalan.Text = GetRemainingAmount(dues?.KasimAidat, duePayment?.KasimAidat, startMonth, 11, currentMonth);
+            LabelAralikKalan.Text = GetRemainingAmount(dues?.AralikAidat, duePayment?.AralikAidat, startMonth, 12, currentMonth);
+        }
+
+        private string GetRemainingAmount(double? due, double? paid, int startMonth, int currentMonth, int nowMonth)
+        {
+            DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
+
+            if (ComboBoxYear.Text == (duePayment?.Year ?? DateTime.Now.Year.ToString()))
+            {
+                if (currentMonth < startMonth || currentMonth > nowMonth)
+                {
+                    return "Üye değildi";
+                }
+                else if (!_member.Aktif)
+                {
+                    return "Üyelik Pasif";
+                }
+
+                return $"{due - paid}" ?? "0";
+            }
+            else
+            {
+                return $"{due - paid}" ?? "0";
+            }
         }
 
         private void ComboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +127,8 @@ namespace DernekTakipApp.Forms
             TextBoxEkimOdenen.Text = duePayment?.EkimAidat.ToString() ?? "0";
             TextBoxKasimOdenen.Text = duePayment?.KasimAidat.ToString() ?? "0";
             TextBoxAralikOdenen.Text = duePayment?.AralikAidat.ToString() ?? "0";
+
+            AssignDefaultValues(_member);
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
