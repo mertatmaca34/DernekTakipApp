@@ -52,9 +52,9 @@ namespace DernekTakipApp.Forms
 
         private void ButtonDues_Click(object sender, EventArgs e)
         {
-            FormMemberDues formMemberDues = new FormMemberDues();
+            //FormMemberDues formMemberDues = new FormMemberDues();
 
-            formMemberDues.ShowDialog();
+            //formMemberDues.ShowDialog();
         }
     }
 }

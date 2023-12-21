@@ -8,24 +8,26 @@ namespace DernekTakipApp
     {
         readonly IMemberManager _memberManager;
         readonly IDueManager _dueManager;
+        readonly IDuePaymentManager _duePaymentManager;
 
-        public FormMain(IMemberManager memberManager, IDueManager dueManager)
+        public FormMain(IMemberManager memberManager, IDueManager dueManager, IDuePaymentManager duePaymentManager)
         {
             InitializeComponent();
 
             _memberManager = memberManager;
             _dueManager = dueManager;
+            _duePaymentManager = duePaymentManager;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            PageChange.Change(PanelContent, this, new FormMembers(_memberManager));
+            PageChange.Change(PanelContent, this, new FormMembers(_memberManager, _dueManager, _duePaymentManager));
             RoundedCorners.MakeRounded(ButtonMembers, ButtonDues, ButtonPayments, ButtonMail);
         }
 
         private void ButtonMembers_Click(object sender, EventArgs e)
         {
-            PageChange.Change(PanelContent, this, new FormMembers(_memberManager));
+            PageChange.Change(PanelContent, this, new FormMembers(_memberManager, _dueManager, _duePaymentManager));
             ColorTransformations.Replace(TableLayoutPanelLeftBar, ButtonMembers);
         }
 

@@ -7,15 +7,17 @@ namespace DernekTakipApp.Forms
     public partial class FormMembers : Form
     {
         readonly IMemberManager _memberManager;
+        readonly IDueManager _dueManager;
         readonly IDuePaymentManager _duePaymentManager;
 
         List<Member> _members;
 
-        public FormMembers(IMemberManager memberManager, IDuePaymentManager duePaymentManager)
+        public FormMembers(IMemberManager memberManager, IDueManager dueManager, IDuePaymentManager duePaymentManager)
         {
             InitializeComponent();
 
             _memberManager = memberManager;
+            _dueManager = dueManager;
             _duePaymentManager = duePaymentManager;
 
             _members = _memberManager.GetAll().Data.ToList();
@@ -94,7 +96,15 @@ namespace DernekTakipApp.Forms
             }
             else if (e.ColumnIndex == 2 && e.RowIndex >= 0)
             {
-                
+                var row = DataGridViewMembers.Rows[e.RowIndex];
+
+                string tckn = row.Cells[3].Value.ToString()!;
+
+                Member member = _memberManager.Get(m => m.TcKimlik == tckn).Data;
+
+                FormMemberDues formMemberDues = new(member, _duePaymentManager, _dueManager);
+
+                formMemberDues.ShowDialog(this);
             }
         }
     }

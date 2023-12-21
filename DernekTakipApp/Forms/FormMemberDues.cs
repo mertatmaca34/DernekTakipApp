@@ -31,18 +31,18 @@ namespace DernekTakipApp.Forms
 
             DuePayment selectedYearDuePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text && d.MemberTC == member.TcKimlik).Data;
 
-            TextBoxOcakOdenen.Text = selectedYearDuePayment.OcakAidat.ToString() ?? "0";
-            TextBoxSubatOdenen.Text = selectedYearDuePayment.SubatAidat.ToString() ?? "0";
-            TextBoxMartOdenen.Text = selectedYearDuePayment.MartAidat.ToString() ?? "0";
-            TextBoxNisanOdenen.Text = selectedYearDuePayment.NisanAidat.ToString() ?? "0";
-            TextBoxMayisOdenen.Text = selectedYearDuePayment.MayisAidat.ToString() ?? "0";
-            TextBoxHaziranOdenen.Text = selectedYearDuePayment.HaziranAidat.ToString() ?? "0";
-            TextBoxTemmuzOdenen.Text = selectedYearDuePayment.TemmuzAidat.ToString() ?? "0";
-            TextBoxAgustosOdenen.Text = selectedYearDuePayment.AgustosAidat.ToString() ?? "0";
-            TextBoxEylulOdenen.Text = selectedYearDuePayment.EylulAidat.ToString() ?? "0";
-            TextBoxEkimOdenen.Text = selectedYearDuePayment.EkimAidat.ToString() ?? "0";
-            TextBoxKasimOdenen.Text = selectedYearDuePayment.KasimAidat.ToString() ?? "0";
-            TextBoxAralikOdenen.Text = selectedYearDuePayment.AralikAidat.ToString() ?? "0";
+            TextBoxOcakOdenen.Text = selectedYearDuePayment?.OcakAidat.ToString() ?? "0";
+            TextBoxSubatOdenen.Text = selectedYearDuePayment?.SubatAidat.ToString() ?? "0";
+            TextBoxMartOdenen.Text = selectedYearDuePayment?.MartAidat.ToString() ?? "0";
+            TextBoxNisanOdenen.Text = selectedYearDuePayment?.NisanAidat.ToString() ?? "0";
+            TextBoxMayisOdenen.Text = selectedYearDuePayment?.MayisAidat.ToString() ?? "0";
+            TextBoxHaziranOdenen.Text = selectedYearDuePayment?.HaziranAidat.ToString() ?? "0";
+            TextBoxTemmuzOdenen.Text = selectedYearDuePayment?.TemmuzAidat.ToString() ?? "0";
+            TextBoxAgustosOdenen.Text = selectedYearDuePayment?.AgustosAidat.ToString() ?? "0";
+            TextBoxEylulOdenen.Text = selectedYearDuePayment?.EylulAidat.ToString() ?? "0";
+            TextBoxEkimOdenen.Text = selectedYearDuePayment?.EkimAidat.ToString() ?? "0";
+            TextBoxKasimOdenen.Text = selectedYearDuePayment?.KasimAidat.ToString() ?? "0";
+            TextBoxAralikOdenen.Text = selectedYearDuePayment?.AralikAidat.ToString() ?? "0";
 
         }
 
@@ -68,38 +68,38 @@ namespace DernekTakipApp.Forms
         {
             DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
 
-            TextBoxOcakOdenen.Text          = duePayment.OcakAidat.ToString();
-            TextBoxSubatOdenen.Text         = duePayment.SubatAidat.ToString();
-            TextBoxMartOdenen.Text          = duePayment.MartAidat.ToString();
-            TextBoxNisanOdenen.Text         = duePayment.NisanAidat.ToString();
-            TextBoxMayisOdenen.Text         = duePayment.MayisAidat.ToString();
-            TextBoxHaziranOdenen.Text       = duePayment.HaziranAidat.ToString();
-            TextBoxTemmuzOdenen.Text        = duePayment.TemmuzAidat.ToString();
-            TextBoxAgustosOdenen.Text       = duePayment.AgustosAidat.ToString();
-            TextBoxEylulOdenen.Text         = duePayment.EylulAidat.ToString();
-            TextBoxEkimOdenen.Text          = duePayment.EkimAidat.ToString();
-            TextBoxKasimOdenen.Text         = duePayment.KasimAidat.ToString();
-            TextBoxAralikOdenen.Text        = duePayment.AralikAidat.ToString();
+            TextBoxOcakOdenen.Text = duePayment?.OcakAidat.ToString() ?? "0";
+            TextBoxSubatOdenen.Text = duePayment?.SubatAidat.ToString() ?? "0";
+            TextBoxMartOdenen.Text = duePayment?.MartAidat.ToString() ?? "0";
+            TextBoxNisanOdenen.Text = duePayment?.NisanAidat.ToString() ?? "0";
+            TextBoxMayisOdenen.Text = duePayment?.MayisAidat.ToString() ?? "0";
+            TextBoxHaziranOdenen.Text = duePayment?.HaziranAidat.ToString() ?? "0";
+            TextBoxTemmuzOdenen.Text = duePayment?.TemmuzAidat.ToString() ?? "0";
+            TextBoxAgustosOdenen.Text = duePayment?.AgustosAidat.ToString() ?? "0";
+            TextBoxEylulOdenen.Text = duePayment?.EylulAidat.ToString() ?? "0";
+            TextBoxEkimOdenen.Text = duePayment?.EkimAidat.ToString() ?? "0";
+            TextBoxKasimOdenen.Text = duePayment?.KasimAidat.ToString() ?? "0";
+            TextBoxAralikOdenen.Text = duePayment?.AralikAidat.ToString() ?? "0";
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             DuePayment duePayment = new DuePayment
             {
-                MemberTC        = _member.TcKimlik,
-                Year            = ComboBoxYear.Text,
-                OcakAidat       = TextBoxOcakOdenen.Text.ToDouble(),
-                SubatAidat      = TextBoxSubatOdenen.Text.ToDouble(),
-                MartAidat       = TextBoxMartOdenen.Text.ToDouble(),
-                NisanAidat      = TextBoxNisanOdenen.Text.ToDouble(),
-                MayisAidat      = TextBoxMayisOdenen.Text.ToDouble(),
-                HaziranAidat    = TextBoxHaziranOdenen.Text.ToDouble(),
-                TemmuzAidat     = TextBoxTemmuzOdenen.Text.ToDouble(),
-                AgustosAidat    = TextBoxAgustosOdenen.Text.ToDouble(),
-                EylulAidat      = TextBoxEylulOdenen.Text.ToDouble(),
-                EkimAidat       = TextBoxEkimOdenen.Text.ToDouble(),
-                KasimAidat      = TextBoxKasimOdenen.Text.ToDouble(),
-                AralikAidat     = TextBoxAralikOdenen.Text.ToDouble(),
+                MemberTC = _member.TcKimlik,
+                Year = ComboBoxYear.Text,
+                OcakAidat = TextBoxOcakOdenen.Text.ToDouble(),
+                SubatAidat = TextBoxSubatOdenen.Text.ToDouble(),
+                MartAidat = TextBoxMartOdenen.Text.ToDouble(),
+                NisanAidat = TextBoxNisanOdenen.Text.ToDouble(),
+                MayisAidat = TextBoxMayisOdenen.Text.ToDouble(),
+                HaziranAidat = TextBoxHaziranOdenen.Text.ToDouble(),
+                TemmuzAidat = TextBoxTemmuzOdenen.Text.ToDouble(),
+                AgustosAidat = TextBoxAgustosOdenen.Text.ToDouble(),
+                EylulAidat = TextBoxEylulOdenen.Text.ToDouble(),
+                EkimAidat = TextBoxEkimOdenen.Text.ToDouble(),
+                KasimAidat = TextBoxKasimOdenen.Text.ToDouble(),
+                AralikAidat = TextBoxAralikOdenen.Text.ToDouble(),
             };
 
             var res = _duePaymentManager.Add(duePayment);

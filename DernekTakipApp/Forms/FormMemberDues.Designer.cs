@@ -74,8 +74,6 @@
             LabelEkimKalan = new Label();
             LabelKasimKalan = new Label();
             LabelAralikKalan = new Label();
-            ComboBoxYear = new ComboBox();
-            ButtonSave = new Button();
             TextBoxOcakOdenen = new TextBox();
             TextBoxSubatOdenen = new TextBox();
             TextBoxMartOdenen = new TextBox();
@@ -88,6 +86,8 @@
             TextBoxEkimOdenen = new TextBox();
             TextBoxKasimOdenen = new TextBox();
             TextBoxAralikOdenen = new TextBox();
+            ComboBoxYear = new ComboBox();
+            ButtonSave = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -681,32 +681,6 @@
             LabelAralikKalan.TabIndex = 4;
             LabelAralikKalan.Text = "0 TL";
             // 
-            // ComboBoxYear
-            // 
-            ComboBoxYear.Anchor = AnchorStyles.Right;
-            ComboBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBoxYear.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            ComboBoxYear.FormattingEnabled = true;
-            ComboBoxYear.Items.AddRange(new object[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", "2052", "2053", "2054", "2055", "2056", "2057", "2058", "2059", "2060", "2061", "2062", "2063", "2064", "2065", "2066", "2067", "2068", "2069", "2070", "2071", "2072", "2073", "2074", "2075", "2076", "2077", "2078", "2079", "2080", "2081", "2082", "2083", "2084", "2085", "2086", "2087", "2088", "2089", "2090", "2091", "2092", "2093", "2094", "2095", "2096", "2097", "2098", "2099", "2100" });
-            ComboBoxYear.Location = new Point(618, 38);
-            ComboBoxYear.Name = "ComboBoxYear";
-            ComboBoxYear.Size = new Size(147, 23);
-            ComboBoxYear.TabIndex = 5;
-            ComboBoxYear.SelectedIndexChanged += ComboBoxYear_SelectedIndexChanged;
-            // 
-            // ButtonSave
-            // 
-            ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonSave.BackColor = Color.FromArgb(240, 236, 87);
-            ButtonSave.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonSave.Location = new Point(512, 510);
-            ButtonSave.Name = "ButtonSave";
-            ButtonSave.Size = new Size(253, 30);
-            ButtonSave.TabIndex = 8;
-            ButtonSave.Text = "KAYDET";
-            ButtonSave.UseVisualStyleBackColor = false;
-            ButtonSave.Click += ButtonSave_Click;
-            // 
             // TextBoxOcakOdenen
             // 
             TextBoxOcakOdenen.Anchor = AnchorStyles.None;
@@ -815,6 +789,32 @@
             TextBoxAralikOdenen.Size = new Size(91, 23);
             TextBoxAralikOdenen.TabIndex = 5;
             TextBoxAralikOdenen.Text = " ";
+            // 
+            // ComboBoxYear
+            // 
+            ComboBoxYear.Anchor = AnchorStyles.Right;
+            ComboBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxYear.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ComboBoxYear.FormattingEnabled = true;
+            ComboBoxYear.Items.AddRange(new object[] { "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", "2052", "2053", "2054", "2055", "2056", "2057", "2058", "2059", "2060", "2061", "2062", "2063", "2064", "2065", "2066", "2067", "2068", "2069", "2070", "2071", "2072", "2073", "2074", "2075", "2076", "2077", "2078", "2079", "2080", "2081", "2082", "2083", "2084", "2085", "2086", "2087", "2088", "2089", "2090", "2091", "2092", "2093", "2094", "2095", "2096", "2097", "2098", "2099", "2100" });
+            ComboBoxYear.Location = new Point(618, 38);
+            ComboBoxYear.Name = "ComboBoxYear";
+            ComboBoxYear.Size = new Size(147, 23);
+            ComboBoxYear.TabIndex = 5;
+            ComboBoxYear.SelectedIndexChanged += ComboBoxYear_SelectedIndexChanged;
+            // 
+            // ButtonSave
+            // 
+            ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ButtonSave.BackColor = Color.FromArgb(240, 236, 87);
+            ButtonSave.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSave.Location = new Point(512, 510);
+            ButtonSave.Name = "ButtonSave";
+            ButtonSave.Size = new Size(253, 30);
+            ButtonSave.TabIndex = 8;
+            ButtonSave.Text = "KAYDET";
+            ButtonSave.UseVisualStyleBackColor = false;
+            ButtonSave.Click += ButtonSave_Click;
             // 
             // FormMemberDues
             // 
