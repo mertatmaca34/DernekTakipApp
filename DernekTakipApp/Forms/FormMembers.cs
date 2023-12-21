@@ -36,11 +36,11 @@ namespace DernekTakipApp.Forms
             DataGridViewMembers.DataSource = null;
             DataGridViewMembers.DataSource = _members;
 
-            DataGridViewMembers.Columns[2].HeaderText = "TCKN";
-            DataGridViewMembers.Columns[3].HeaderText = "Ad Soyad";
-            DataGridViewMembers.Columns[4].HeaderText = "Kan Grubu";
-            DataGridViewMembers.Columns[5].HeaderText = "Şehir";
-            DataGridViewMembers.Columns[6].HeaderText = "Üyelik Durumu";
+            DataGridViewMembers.Columns[3].HeaderText = "TCKN";
+            DataGridViewMembers.Columns[4].HeaderText = "Ad Soyad";
+            DataGridViewMembers.Columns[5].HeaderText = "Kan Grubu";
+            DataGridViewMembers.Columns[6].HeaderText = "Şehir";
+            DataGridViewMembers.Columns[7].HeaderText = "Üyelik Durumu";
 
             DataGridViewMembers.Refresh();
         }
@@ -90,7 +90,23 @@ namespace DernekTakipApp.Forms
                     MessageBox.Show(result.Message);
                 }
             }
+            else if (e.ColumnIndex == 2 && e.RowIndex >= 0)
+            {
+                var res = MessageBox.Show(Messages.MemberCheckDelete, Messages.CaptionWarning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                if (res == DialogResult.Yes)
+                {
+                    string tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
+
+                    Member member = new() { TcKimlik = tckn };
+
+                    var result = _memberManager.Delete(member);
+
+                    DataGridViewCustomization();
+
+                    MessageBox.Show(result.Message);
+                }
+            }
         }
     }
 }

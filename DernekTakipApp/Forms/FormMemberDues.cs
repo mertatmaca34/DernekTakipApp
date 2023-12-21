@@ -6,5 +6,10 @@
         {
             InitializeComponent();
         }
+
+        private void ComboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

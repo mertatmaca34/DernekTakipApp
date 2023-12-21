@@ -40,6 +40,7 @@
             DataGridViewMembers = new DataGridView();
             EditColumn = new DataGridViewImageColumn();
             DeleteColumn = new DataGridViewImageColumn();
+            PaymentColumn = new DataGridViewButtonColumn();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).BeginInit();
             SuspendLayout();
@@ -121,7 +122,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             DataGridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             DataGridViewMembers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridViewMembers.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn });
+            DataGridViewMembers.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn, PaymentColumn });
             tableLayoutPanel1.SetColumnSpan(DataGridViewMembers, 2);
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
@@ -182,6 +183,16 @@
             DeleteColumn.ReadOnly = true;
             DeleteColumn.ToolTipText = "Sil";
             // 
+            // PaymentColumn
+            // 
+            PaymentColumn.HeaderText = "";
+            PaymentColumn.Name = "PaymentColumn";
+            PaymentColumn.ReadOnly = true;
+            PaymentColumn.Resizable = DataGridViewTriState.True;
+            PaymentColumn.SortMode = DataGridViewColumnSortMode.Automatic;
+            PaymentColumn.Text = "Aidat Ödemeleri";
+            PaymentColumn.UseColumnTextForButtonValue = true;
+            // 
             // FormMembers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,5 +219,6 @@
         private DataGridView DataGridViewMembers;
         private DataGridViewImageColumn EditColumn;
         private DataGridViewImageColumn DeleteColumn;
+        private DataGridViewButtonColumn PaymentColumn;
     }
 }
