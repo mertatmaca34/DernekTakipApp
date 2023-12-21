@@ -41,10 +41,11 @@ namespace DernekTakipApp.Forms
             DataGridViewMembers.DataSource = _members;
 
             DataGridViewMembers.Columns[3].HeaderText = "TCKN";
-            DataGridViewMembers.Columns[4].HeaderText = "Ad Soyad";
-            DataGridViewMembers.Columns[5].HeaderText = "Kan Grubu";
-            DataGridViewMembers.Columns[6].HeaderText = "Şehir";
-            DataGridViewMembers.Columns[7].HeaderText = "Üyelik Durumu";
+            DataGridViewMembers.Columns[4].HeaderText = "Üyelik Tarihi";
+            DataGridViewMembers.Columns[5].HeaderText = "Ad Soyad";
+            DataGridViewMembers.Columns[6].HeaderText = "Kan Grubu";
+            DataGridViewMembers.Columns[7].HeaderText = "Şehir";
+            DataGridViewMembers.Columns[8].HeaderText = "Üyelik Durumu";
 
             DataGridViewMembers.Refresh();
         }
@@ -68,7 +69,6 @@ namespace DernekTakipApp.Forms
                 formNewMember.ComboBoxBloodGroup.Text = bloodGroup;
                 formNewMember.ComboBoxCity.Text = city;
                 formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
-                formNewMember.ButtonDues.Enabled = true;
                 formNewMember.LabelHeaderText.Text = "Üye Düzenle";
 
                 formNewMember.Text = "Üye Düzenle";

@@ -45,10 +45,10 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             TextBoxTc = new MaskedTextBox();
             label5 = new Label();
-            ButtonDues = new Button();
             ButtonSave = new Button();
             label6 = new Label();
             CheckBoxMemberStatement = new CheckBox();
+            dateTimePicker1 = new DateTimePicker();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -73,10 +73,10 @@
             tableLayoutPanel1.Controls.Add(label4, 1, 4);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 1, 3);
             tableLayoutPanel1.Controls.Add(label5, 0, 6);
-            tableLayoutPanel1.Controls.Add(ButtonDues, 0, 7);
             tableLayoutPanel1.Controls.Add(ButtonSave, 0, 8);
             tableLayoutPanel1.Controls.Add(label6, 1, 6);
             tableLayoutPanel1.Controls.Add(CheckBoxMemberStatement, 1, 7);
+            tableLayoutPanel1.Controls.Add(dateTimePicker1, 0, 7);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -277,23 +277,9 @@
             label5.Font = new Font("Bahnschrift", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(38, 275);
             label5.Name = "label5";
-            label5.Size = new Size(116, 16);
+            label5.Size = new Size(77, 16);
             label5.TabIndex = 3;
-            label5.Text = "Aidatlar/Ödemeler";
-            // 
-            // ButtonDues
-            // 
-            ButtonDues.Dock = DockStyle.Fill;
-            ButtonDues.Enabled = false;
-            ButtonDues.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonDues.Location = new Point(44, 300);
-            ButtonDues.Margin = new Padding(9);
-            ButtonDues.Name = "ButtonDues";
-            ButtonDues.Size = new Size(273, 35);
-            ButtonDues.TabIndex = 4;
-            ButtonDues.Text = "Üye Aidat Ödeme Durumu";
-            ButtonDues.UseVisualStyleBackColor = true;
-            ButtonDues.Click += ButtonDues_Click;
+            label5.Text = "Üyelik Tarihi";
             // 
             // ButtonSave
             // 
@@ -335,6 +321,14 @@
             CheckBoxMemberStatement.TabIndex = 5;
             CheckBoxMemberStatement.Text = "Üyelik Aktif Mi?";
             CheckBoxMemberStatement.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.None;
+            dateTimePicker1.Location = new Point(46, 306);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(269, 23);
+            dateTimePicker1.TabIndex = 7;
             // 
             // FormNewMember
             // 
@@ -379,7 +373,7 @@
         public MaskedTextBox TextBoxTc;
         public ComboBox ComboBoxCity;
         public CheckBox CheckBoxMemberStatement;
-        public Button ButtonDues;
         public Label LabelHeaderText;
+        private DateTimePicker dateTimePicker1;
     }
 }

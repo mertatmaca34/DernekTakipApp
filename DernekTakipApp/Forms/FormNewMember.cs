@@ -6,7 +6,7 @@ namespace DernekTakipApp.Forms
 {
     public partial class FormNewMember : Form
     {
-        IMemberManager _memberManager;
+        readonly IMemberManager _memberManager;
 
         public FormNewMember(IMemberManager memberManager)
         {
@@ -23,7 +23,6 @@ namespace DernekTakipApp.Forms
             TextBoxTc.Text = member.TcKimlik;
             ComboBoxBloodGroup.Text = member.KanGrubu;
             ComboBoxCity.Text = member.Sehir;
-            ButtonDues.Enabled = true;
 
             InitializeComponent();
         }
@@ -37,6 +36,7 @@ namespace DernekTakipApp.Forms
             Member member = new Member
             {
                 AdSoyad = TextBoxName.Text,
+                UyelikTarihi = dateTimePicker1.Value,
                 TcKimlik = TextBoxTc.Text,
                 KanGrubu = ComboBoxBloodGroup.Text,
                 Sehir = ComboBoxCity.Text,
@@ -48,13 +48,6 @@ namespace DernekTakipApp.Forms
             MessageBox.Show(res.Message, Messages.CaptionInfo, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
-        }
-
-        private void ButtonDues_Click(object sender, EventArgs e)
-        {
-            //FormMemberDues formMemberDues = new FormMemberDues();
-
-            //formMemberDues.ShowDialog();
         }
     }
 }
