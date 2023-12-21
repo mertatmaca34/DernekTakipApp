@@ -93,7 +93,7 @@
             ButtonPayments.Name = "ButtonPayments";
             ButtonPayments.Size = new Size(74, 68);
             ButtonPayments.TabIndex = 3;
-            ButtonPayments.Text = "Ödemeler";
+            ButtonPayments.Text = "Üye Borçları";
             ButtonPayments.TextAlign = ContentAlignment.BottomCenter;
             ButtonPayments.UseVisualStyleBackColor = true;
             ButtonPayments.Click += ButtonPayments_Click;
