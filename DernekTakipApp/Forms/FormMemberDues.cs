@@ -70,6 +70,8 @@ namespace DernekTakipApp.Forms
             DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
             Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
 
+            if(_member.UyelikTarihi == new DateTime(_member.UyelikTarihi.Value.Year, _member.UyelikTarihi.Month.Year,0))
+
             LabelOcakKalan.Text = $"{dues?.OcakAidat - duePayment?.OcakAidat}" ?? "0";
             LabelSubatKalan.Text = $"{dues?.SubatAidat - duePayment?.SubatAidat}" ?? "0";
             LabelMartKalan.Text = $"{dues?.MartAidat - duePayment?.MartAidat}" ?? "0";
