@@ -689,6 +689,7 @@
             TextBoxOcakOdenen.Name = "TextBoxOcakOdenen";
             TextBoxOcakOdenen.Size = new Size(91, 23);
             TextBoxOcakOdenen.TabIndex = 5;
+            TextBoxOcakOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxSubatOdenen
             // 
@@ -698,6 +699,7 @@
             TextBoxSubatOdenen.Name = "TextBoxSubatOdenen";
             TextBoxSubatOdenen.Size = new Size(91, 23);
             TextBoxSubatOdenen.TabIndex = 5;
+            TextBoxSubatOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxMartOdenen
             // 
@@ -707,6 +709,7 @@
             TextBoxMartOdenen.Name = "TextBoxMartOdenen";
             TextBoxMartOdenen.Size = new Size(91, 23);
             TextBoxMartOdenen.TabIndex = 5;
+            TextBoxMartOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxNisanOdenen
             // 
@@ -716,6 +719,7 @@
             TextBoxNisanOdenen.Name = "TextBoxNisanOdenen";
             TextBoxNisanOdenen.Size = new Size(91, 23);
             TextBoxNisanOdenen.TabIndex = 5;
+            TextBoxNisanOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxMayisOdenen
             // 
@@ -725,6 +729,7 @@
             TextBoxMayisOdenen.Name = "TextBoxMayisOdenen";
             TextBoxMayisOdenen.Size = new Size(91, 23);
             TextBoxMayisOdenen.TabIndex = 5;
+            TextBoxMayisOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxHaziranOdenen
             // 
@@ -734,6 +739,7 @@
             TextBoxHaziranOdenen.Name = "TextBoxHaziranOdenen";
             TextBoxHaziranOdenen.Size = new Size(91, 23);
             TextBoxHaziranOdenen.TabIndex = 5;
+            TextBoxHaziranOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxTemmuzOdenen
             // 
@@ -743,6 +749,7 @@
             TextBoxTemmuzOdenen.Name = "TextBoxTemmuzOdenen";
             TextBoxTemmuzOdenen.Size = new Size(91, 23);
             TextBoxTemmuzOdenen.TabIndex = 5;
+            TextBoxTemmuzOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxAgustosOdenen
             // 
@@ -752,6 +759,7 @@
             TextBoxAgustosOdenen.Name = "TextBoxAgustosOdenen";
             TextBoxAgustosOdenen.Size = new Size(91, 23);
             TextBoxAgustosOdenen.TabIndex = 5;
+            TextBoxAgustosOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxEylulOdenen
             // 
@@ -761,6 +769,7 @@
             TextBoxEylulOdenen.Name = "TextBoxEylulOdenen";
             TextBoxEylulOdenen.Size = new Size(91, 23);
             TextBoxEylulOdenen.TabIndex = 5;
+            TextBoxEylulOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxEkimOdenen
             // 
@@ -770,6 +779,7 @@
             TextBoxEkimOdenen.Name = "TextBoxEkimOdenen";
             TextBoxEkimOdenen.Size = new Size(91, 23);
             TextBoxEkimOdenen.TabIndex = 5;
+            TextBoxEkimOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxKasimOdenen
             // 
@@ -779,6 +789,7 @@
             TextBoxKasimOdenen.Name = "TextBoxKasimOdenen";
             TextBoxKasimOdenen.Size = new Size(91, 23);
             TextBoxKasimOdenen.TabIndex = 5;
+            TextBoxKasimOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // TextBoxAralikOdenen
             // 
@@ -789,6 +800,7 @@
             TextBoxAralikOdenen.Size = new Size(91, 23);
             TextBoxAralikOdenen.TabIndex = 5;
             TextBoxAralikOdenen.Text = " ";
+            TextBoxAralikOdenen.TextAlign = HorizontalAlignment.Center;
             // 
             // ComboBoxYear
             // 
