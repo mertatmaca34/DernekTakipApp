@@ -55,9 +55,12 @@ namespace DernekTakipApp.Forms
         private double CalculateTotalDebt(string memberTC)
         {
             // Üyenin toplam borcunu hesapla
-            double totalDebt = _duePayments
+            double totalPayment = _duePayments
                 .Where(d => d.MemberTC == memberTC)
                 .Sum(d => CalculateRemainingAmount(d));
+
+            double mustPay = _dueManager.GetAll().Data.Where(d => d.Year == "2023")
+                .Sum(d=> d.OcakAidat + d.SubatAidat + d.MartAidat + d.MayisAidat + d.HaziranAidat + d.TemmuzAidat + d.AgustosAidat + d.EylulAidat + d.EkimAidat + d.KasimAidat + d.AralikAidat);
 
             return totalDebt;
         }
