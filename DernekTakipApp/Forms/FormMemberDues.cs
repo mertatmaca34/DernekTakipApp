@@ -50,6 +50,21 @@ namespace DernekTakipApp.Forms
                 TextBoxKasimOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[10].Id)?.Data.PaymentAmount.ToString() ?? "0";
                 TextBoxAralikOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[11].Id)?.Data.PaymentAmount.ToString() ?? "0";
             }
+            else
+            {
+                TextBoxOcakOdenen.Text =  "0";
+                TextBoxSubatOdenen.Text = "0";
+                TextBoxMartOdenen.Text = "0";
+                TextBoxNisanOdenen.Text = "0";
+                TextBoxMayisOdenen.Text = "0";
+                TextBoxHaziranOdenen.Text = "0";
+                TextBoxTemmuzOdenen.Text = "0";
+                TextBoxAgustosOdenen.Text = "0";
+                TextBoxEylulOdenen.Text = "0";
+                TextBoxEkimOdenen.Text = "0";
+                TextBoxKasimOdenen.Text = "0";
+                TextBoxAralikOdenen.Text = "0";
+            }
         }
 
         private void AssignDues()
