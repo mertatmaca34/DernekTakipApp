@@ -23,7 +23,7 @@ namespace Business.Concrete
 
             if (result == null)
             {
-                var filteredData = _duePaymentDal.GetAll(d => d.Id == duePayment.Id).FirstOrDefault();
+                var filteredData = _duePaymentDal.GetAll(d => d.DueId == duePayment.DueId).FirstOrDefault();
 
                 duePayment.Id = filteredData!.Id;
 
@@ -84,7 +84,7 @@ namespace Business.Concrete
         {
             if (duePayment != null)
             {
-                var filteredData = _duePaymentDal.GetAll(d => d.Id == duePayment.Id && d.MemberTC == duePayment.MemberTC).FirstOrDefault();
+                var filteredData = _duePaymentDal.GetAll(d => d.DueId == duePayment.DueId && d.MemberTC == duePayment.MemberTC).FirstOrDefault();
 
                 if (filteredData != null)
                 {

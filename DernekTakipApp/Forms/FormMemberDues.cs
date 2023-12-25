@@ -34,8 +34,9 @@ namespace DernekTakipApp.Forms
             AssignDebts();
 
             var selectedYearDues = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text)).Data.ToList();
+            var memberPayments = _duePaymentManager.GetAll(d => d.MemberTC == _member.TcKimlik).Data.ToList();
 
-            if (selectedYearDues.Count > 0)
+            if (memberPayments.Count > 0)
             {
                 TextBoxOcakOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[0].Id)?.Data.PaymentAmount.ToString() ?? "0";
                 TextBoxSubatOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[1].Id)?.Data.PaymentAmount.ToString() ?? "0";
@@ -52,7 +53,7 @@ namespace DernekTakipApp.Forms
             }
             else
             {
-                TextBoxOcakOdenen.Text =  "0";
+                TextBoxOcakOdenen.Text = "0";
                 TextBoxSubatOdenen.Text = "0";
                 TextBoxMartOdenen.Text = "0";
                 TextBoxNisanOdenen.Text = "0";
