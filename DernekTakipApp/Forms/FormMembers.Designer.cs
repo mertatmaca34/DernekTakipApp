@@ -36,13 +36,19 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             ButtonNewMember = new Button();
-            textBox1 = new TextBox();
             DataGridViewMembers = new DataGridView();
             EditColumn = new DataGridViewImageColumn();
             DeleteColumn = new DataGridViewImageColumn();
             PaymentColumn = new DataGridViewButtonColumn();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            TextBoxSearch = new TextBox();
+            label2 = new Label();
+            ComboBoxFilterBloodGroup = new ComboBox();
+            label3 = new Label();
+            ComboBoxFilterCity = new ComboBox();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -53,8 +59,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(ButtonNewMember, 1, 0);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
             tableLayoutPanel1.Controls.Add(DataGridViewMembers, 0, 2);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(86, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -88,16 +94,6 @@
             ButtonNewMember.Text = "YENİ KAYIT";
             ButtonNewMember.UseVisualStyleBackColor = false;
             ButtonNewMember.Click += ButtonNewMember_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Right;
-            textBox1.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(697, 88);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Ara";
-            textBox1.Size = new Size(302, 23);
-            textBox1.TabIndex = 2;
             // 
             // DataGridViewMembers
             // 
@@ -193,6 +189,85 @@
             PaymentColumn.Text = "Aidat Ödemeleri";
             PaymentColumn.UseColumnTextForButtonValue = true;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 5;
+            tableLayoutPanel1.SetColumnSpan(tableLayoutPanel2, 2);
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 125F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.Controls.Add(TextBoxSearch, 4, 0);
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Controls.Add(ComboBoxFilterBloodGroup, 1, 0);
+            tableLayoutPanel2.Controls.Add(label3, 2, 0);
+            tableLayoutPanel2.Controls.Add(ComboBoxFilterCity, 3, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 85);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(996, 29);
+            tableLayoutPanel2.TabIndex = 4;
+            // 
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Anchor = AnchorStyles.Right;
+            TextBoxSearch.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxSearch.Location = new Point(749, 3);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PlaceholderText = "Akıllı Arama";
+            TextBoxSearch.Size = new Size(244, 23);
+            TextBoxSearch.TabIndex = 2;
+            TextBoxSearch.Text = " ";
+            TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 7);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Kan Grubuna Göre:";
+            // 
+            // ComboBoxFilterBloodGroup
+            // 
+            ComboBoxFilterBloodGroup.Dock = DockStyle.Fill;
+            ComboBoxFilterBloodGroup.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxFilterBloodGroup.FormattingEnabled = true;
+            ComboBoxFilterBloodGroup.Items.AddRange(new object[] { "A Rh(+)", "A Rh(-)", "B Rh(+)", "B Rh(-)", "AB Rh(+)", "AB Rh(-)", "0 Rh(+)", "0 Rh(-)" });
+            ComboBoxFilterBloodGroup.Location = new Point(128, 3);
+            ComboBoxFilterBloodGroup.Name = "ComboBoxFilterBloodGroup";
+            ComboBoxFilterBloodGroup.Size = new Size(251, 23);
+            ComboBoxFilterBloodGroup.TabIndex = 5;
+            ComboBoxFilterBloodGroup.SelectedIndexChanged += ComboBoxFilterBloodGroup_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(409, 7);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Şehire Göre:";
+            // 
+            // ComboBoxFilterCity
+            // 
+            ComboBoxFilterCity.Dock = DockStyle.Fill;
+            ComboBoxFilterCity.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxFilterCity.FormattingEnabled = true;
+            ComboBoxFilterCity.Items.AddRange(new object[] { "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri", "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli", "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "K.maraş", "Mardin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kırıkkale", "Batman", "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce" });
+            ComboBoxFilterCity.Location = new Point(485, 3);
+            ComboBoxFilterCity.Margin = new Padding(3, 3, 20, 3);
+            ComboBoxFilterCity.Name = "ComboBoxFilterCity";
+            ComboBoxFilterCity.Size = new Size(234, 23);
+            ComboBoxFilterCity.TabIndex = 5;
+            ComboBoxFilterCity.SelectedIndexChanged += ComboBoxFilterCity_SelectedIndexChanged;
+            // 
             // FormMembers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -207,6 +282,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -215,10 +292,15 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
         private Button ButtonNewMember;
-        private TextBox textBox1;
         private DataGridView DataGridViewMembers;
         private DataGridViewImageColumn EditColumn;
         private DataGridViewImageColumn DeleteColumn;
         private DataGridViewButtonColumn PaymentColumn;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TextBox TextBoxSearch;
+        private Label label2;
+        private ComboBox ComboBoxFilterBloodGroup;
+        private Label label3;
+        private ComboBox ComboBoxFilterCity;
     }
 }

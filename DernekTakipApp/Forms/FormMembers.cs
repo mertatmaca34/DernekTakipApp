@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Entities.Concrete;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DernekTakipApp.Forms
@@ -25,7 +26,7 @@ namespace DernekTakipApp.Forms
 
             DataGridViewMembers.DataSource = _members;
 
-            DataGridViewCustomization();
+            DataGridViewCustomization(_members);
         }
 
         private void ButtonNewMember_Click(object sender, EventArgs e)
@@ -34,12 +35,10 @@ namespace DernekTakipApp.Forms
             formNewMember.ShowDialog();
         }
 
-        private void DataGridViewCustomization()
+        private void DataGridViewCustomization(List<Member> members = null)
         {
-            _members = _memberManager.GetAll().Data.ToList();
-
             DataGridViewMembers.DataSource = null;
-            DataGridViewMembers.DataSource = _members;
+            DataGridViewMembers.DataSource = members;
 
             DataGridViewMembers.Columns[3].HeaderText = "TCKN";
             DataGridViewMembers.Columns[4].HeaderText = "Üyelik Tarihi";
@@ -53,62 +52,105 @@ namespace DernekTakipApp.Forms
 
         private void DataGridViewMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            switch (e)
             {
-                var row = DataGridViewMembers.Rows[e.RowIndex];
+                case { ColumnIndex: 0, RowIndex: >= 0 }:
+                    {
+                        var row = DataGridViewMembers.Rows[e.RowIndex];
 
-                string tckn = row.Cells[3].Value.ToString()!;
-                DateTime registerDate = Convert.ToDateTime(row.Cells[4].Value);
-                string nameSurname = row.Cells[5].Value.ToString()!;
-                string bloodGroup = row.Cells[6].Value.ToString()!;
-                string city = row.Cells[7].Value.ToString()!;
-                bool memberStatement = bool.Parse(row.Cells[8].Value.ToString()!);
+                        var tckn = row.Cells[3].Value.ToString()!;
+                        var registerDate = Convert.ToDateTime(row.Cells[4].Value);
+                        var nameSurname = row.Cells[5].Value.ToString()!;
+                        var bloodGroup = row.Cells[6].Value.ToString()!;
+                        var city = row.Cells[7].Value.ToString()!;
+                        var memberStatement = bool.Parse(row.Cells[8].Value.ToString()!);
 
-                FormNewMember formNewMember = new(_memberManager);
+                        FormNewMember formNewMember = new(_memberManager);
 
-                formNewMember.TextBoxTc.Text = tckn;
-                formNewMember.TextBoxName.Text = nameSurname;
-                formNewMember.ComboBoxBloodGroup.Text = bloodGroup;
-                formNewMember.ComboBoxCity.Text = city;
-                formNewMember.dateTimePicker1.Value = registerDate;
-                formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
-                formNewMember.LabelHeaderText.Text = "Üye Düzenle";
+                        formNewMember.TextBoxTc.Text = tckn;
+                        formNewMember.TextBoxName.Text = nameSurname;
+                        formNewMember.ComboBoxBloodGroup.Text = bloodGroup;
+                        formNewMember.ComboBoxCity.Text = city;
+                        formNewMember.dateTimePicker1.Value = registerDate;
+                        formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
+                        formNewMember.LabelHeaderText.Text = "Üye Düzenle";
 
-                formNewMember.Text = "Üye Düzenle";
+                        formNewMember.Text = "Üye Düzenle";
 
-                formNewMember.ShowDialog(this);
+                        formNewMember.ShowDialog(this);
 
-                DataGridViewCustomization();
+                        DataGridViewCustomization(_members);
+                        break;
+                    }
+                case { ColumnIndex: 1, RowIndex: >= 0 }:
+                    {
+                        var res = MessageBox.Show(Messages.MemberCheckDelete, Messages.CaptionWarning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (res == DialogResult.Yes)
+                        {
+                            var tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
+
+                            Member member = new() { TcKimlik = tckn };
+
+                            var result = _memberManager.Delete(member);
+
+                            DataGridViewCustomization(_members);
+
+                            MessageBox.Show(result.Message);
+                        }
+
+                        break;
+                    }
+                case { ColumnIndex: 2, RowIndex: >= 0 }:
+                    {
+                        var row = DataGridViewMembers.Rows[e.RowIndex];
+
+                        var tckn = row.Cells[3].Value.ToString()!;
+
+                        var member = _memberManager.Get(m => m.TcKimlik == tckn).Data;
+
+                        FormMemberDues formMemberDues = new(member, _duePaymentManager, _dueManager);
+
+                        formMemberDues.ShowDialog(this);
+                        break;
+                    }
             }
-            else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
-            {
-                var res = MessageBox.Show(Messages.MemberCheckDelete, Messages.CaptionWarning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        }
 
-                if (res == DialogResult.Yes)
+        private void ComboBoxFilterBloodGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var filteredMembers = _members.Where(m => m.KanGrubu == ComboBoxFilterBloodGroup.Text).ToList();
+
+            DataGridViewCustomization(filteredMembers);
+        }
+
+        private void ComboBoxFilterCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var filteredMembers = _members.Where(m => m.Sehir == ComboBoxFilterCity.Text).ToList();
+
+            DataGridViewCustomization(filteredMembers);
+        }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            var filteredMembers = _members.Where(customer =>
+            {
+                for (var index = 0; index < customer.GetType().GetProperties().Length; index++)
                 {
-                    string tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
+                    var property = customer.GetType().GetProperties()[index];
+                    var value = property.GetValue(customer);
 
-                    Member member = new() { TcKimlik = tckn };
-
-                    var result = _memberManager.Delete(member);
-
-                    DataGridViewCustomization();
-
-                    MessageBox.Show(result.Message);
+                    if (value != null &&
+                        value.ToString()?.IndexOf(TextBoxSearch.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        return true;
+                    }
                 }
-            }
-            else if (e.ColumnIndex == 2 && e.RowIndex >= 0)
-            {
-                var row = DataGridViewMembers.Rows[e.RowIndex];
 
-                string tckn = row.Cells[3].Value.ToString()!;
+                return false;
+            }).ToList();
 
-                Member member = _memberManager.Get(m => m.TcKimlik == tckn).Data;
-
-                FormMemberDues formMemberDues = new(member, _duePaymentManager, _dueManager);
-
-                formMemberDues.ShowDialog(this);
-            }
+            DataGridViewCustomization(filteredMembers);
         }
     }
 }
