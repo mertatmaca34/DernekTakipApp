@@ -39,6 +39,7 @@ namespace DernekTakipApp
 
         private void ButtonPayments_Click(object sender, EventArgs e)
         {
+            PageChange.Change(PanelContent, this, new FormMemberDebts(_memberManager, _duePaymentManager, _dueManager));
             ColorTransformations.Replace(TableLayoutPanelLeftBar, ButtonPayments);
         }
 

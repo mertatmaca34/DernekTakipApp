@@ -28,21 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             ButtonNewMember = new Button();
             textBox1 = new TextBox();
-            DataGridViewMembers = new DataGridView();
-            EditColumn = new DataGridViewImageColumn();
-            DeleteColumn = new DataGridViewImageColumn();
-            PaymentColumn = new DataGridViewButtonColumn();
+            DataGridViewMemberDebts = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMemberDebts).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,7 +51,7 @@
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(ButtonNewMember, 1, 0);
             tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel1.Controls.Add(DataGridViewMembers, 0, 2);
+            tableLayoutPanel1.Controls.Add(DataGridViewMemberDebts, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(86, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -72,9 +69,9 @@
             label1.Font = new Font("Calibri", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(3, 49);
             label1.Name = "label1";
-            label1.Size = new Size(91, 33);
+            label1.Size = new Size(154, 33);
             label1.TabIndex = 0;
-            label1.Text = "Üyeler";
+            label1.Text = "Üye Borçları";
             // 
             // ButtonNewMember
             // 
@@ -98,98 +95,68 @@
             textBox1.Size = new Size(302, 23);
             textBox1.TabIndex = 2;
             // 
-            // DataGridViewMembers
+            // DataGridViewMemberDebts
             // 
-            DataGridViewMembers.AllowUserToAddRows = false;
-            DataGridViewMembers.AllowUserToDeleteRows = false;
-            DataGridViewMembers.AllowUserToResizeColumns = false;
-            DataGridViewMembers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            DataGridViewMembers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            DataGridViewMembers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DataGridViewMembers.BackgroundColor = Color.White;
-            DataGridViewMembers.BorderStyle = BorderStyle.None;
-            DataGridViewMembers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            DataGridViewMembers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(240, 236, 87);
-            dataGridViewCellStyle7.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new Padding(5);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(240, 236, 87);
-            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            DataGridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            DataGridViewMembers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridViewMembers.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn, PaymentColumn });
-            tableLayoutPanel1.SetColumnSpan(DataGridViewMembers, 2);
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(187, 206, 168);
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            DataGridViewMembers.DefaultCellStyle = dataGridViewCellStyle8;
-            DataGridViewMembers.Dock = DockStyle.Fill;
-            DataGridViewMembers.EnableHeadersVisualStyles = false;
-            DataGridViewMembers.GridColor = Color.WhiteSmoke;
-            DataGridViewMembers.Location = new Point(0, 117);
-            DataGridViewMembers.Margin = new Padding(0);
-            DataGridViewMembers.MultiSelect = false;
-            DataGridViewMembers.Name = "DataGridViewMembers";
-            DataGridViewMembers.ReadOnly = true;
-            DataGridViewMembers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            DataGridViewMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            DataGridViewMembers.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.Padding = new Padding(5);
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(227, 216, 126);
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            DataGridViewMembers.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            DataGridViewMembers.RowTemplate.DividerHeight = 10;
-            DataGridViewMembers.RowTemplate.Height = 50;
-            DataGridViewMembers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridViewMembers.Size = new Size(1002, 564);
-            DataGridViewMembers.TabIndex = 3;
-            // 
-            // EditColumn
-            // 
-            EditColumn.FillWeight = 30F;
-            EditColumn.HeaderText = "";
-            EditColumn.Image = Properties.Resources.edit_row_24px;
-            EditColumn.Name = "EditColumn";
-            EditColumn.ReadOnly = true;
-            EditColumn.Resizable = DataGridViewTriState.True;
-            EditColumn.ToolTipText = "Düzenle";
-            // 
-            // DeleteColumn
-            // 
-            DeleteColumn.FillWeight = 30F;
-            DeleteColumn.HeaderText = "";
-            DeleteColumn.Image = Properties.Resources.waste_24px;
-            DeleteColumn.Name = "DeleteColumn";
-            DeleteColumn.ReadOnly = true;
-            DeleteColumn.ToolTipText = "Sil";
-            // 
-            // PaymentColumn
-            // 
-            PaymentColumn.HeaderText = "";
-            PaymentColumn.Name = "PaymentColumn";
-            PaymentColumn.ReadOnly = true;
-            PaymentColumn.Resizable = DataGridViewTriState.True;
-            PaymentColumn.SortMode = DataGridViewColumnSortMode.Automatic;
-            PaymentColumn.Text = "Aidat Ödemeleri";
-            PaymentColumn.UseColumnTextForButtonValue = true;
+            DataGridViewMemberDebts.AllowUserToAddRows = false;
+            DataGridViewMemberDebts.AllowUserToDeleteRows = false;
+            DataGridViewMemberDebts.AllowUserToResizeColumns = false;
+            DataGridViewMemberDebts.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            DataGridViewMemberDebts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            DataGridViewMemberDebts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DataGridViewMemberDebts.BackgroundColor = Color.White;
+            DataGridViewMemberDebts.BorderStyle = BorderStyle.None;
+            DataGridViewMemberDebts.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            DataGridViewMemberDebts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(240, 236, 87);
+            dataGridViewCellStyle2.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 236, 87);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            DataGridViewMemberDebts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tableLayoutPanel1.SetColumnSpan(DataGridViewMemberDebts, 2);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 206, 168);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.DefaultCellStyle = dataGridViewCellStyle3;
+            DataGridViewMemberDebts.Dock = DockStyle.Fill;
+            DataGridViewMemberDebts.EnableHeadersVisualStyles = false;
+            DataGridViewMemberDebts.GridColor = Color.WhiteSmoke;
+            DataGridViewMemberDebts.Location = new Point(0, 117);
+            DataGridViewMemberDebts.Margin = new Padding(0);
+            DataGridViewMemberDebts.MultiSelect = false;
+            DataGridViewMemberDebts.Name = "DataGridViewMemberDebts";
+            DataGridViewMemberDebts.ReadOnly = true;
+            DataGridViewMemberDebts.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            DataGridViewMemberDebts.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            DataGridViewMemberDebts.RowHeadersVisible = false;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.Padding = new Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(227, 216, 126);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            DataGridViewMemberDebts.RowTemplate.DividerHeight = 10;
+            DataGridViewMemberDebts.RowTemplate.Height = 50;
+            DataGridViewMemberDebts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewMemberDebts.Size = new Size(1002, 564);
+            DataGridViewMemberDebts.TabIndex = 3;
             // 
             // FormMemberDebts
             // 
@@ -204,7 +171,7 @@
             Text = "FormMemberDebts";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewMemberDebts).EndInit();
             ResumeLayout(false);
         }
 
@@ -214,9 +181,6 @@
         private Label label1;
         private Button ButtonNewMember;
         private TextBox textBox1;
-        private DataGridView DataGridViewMembers;
-        private DataGridViewImageColumn EditColumn;
-        private DataGridViewImageColumn DeleteColumn;
-        private DataGridViewButtonColumn PaymentColumn;
+        private DataGridView DataGridViewMemberDebts;
     }
 }
