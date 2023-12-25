@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using DernekTakipApp.Utils;
 using Entities.Concrete;
-using System.Diagnostics.Metrics;
 
 namespace DernekTakipApp.Forms
 {
@@ -11,6 +10,7 @@ namespace DernekTakipApp.Forms
         readonly IDueManager _dueManager;
 
         readonly Member _member;
+        List<Due> _dueList;
 
         public FormMemberDues(Member member, IDuePaymentManager duePaymentManager, IDueManager dueManager)
         {
@@ -23,6 +23,8 @@ namespace DernekTakipApp.Forms
             ComboBoxYear.Text = "2023";
             LabelMemberName.Text = $"ÜYE: {_member.AdSoyad}";
 
+            _dueList = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text)).Data.ToList();
+
             AssignDefaultValues(member);
         }
 
@@ -31,131 +33,119 @@ namespace DernekTakipApp.Forms
             AssignDues();
             AssignDebts();
 
-            DuePayment selectedYearDuePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text && d.MemberTC == member.TcKimlik).Data;
+            var selectedYearDues = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text)).Data.ToList();
 
-            TextBoxOcakOdenen.Text = selectedYearDuePayment?.OcakAidat.ToString() ?? "0";
-            TextBoxSubatOdenen.Text = selectedYearDuePayment?.SubatAidat.ToString() ?? "0";
-            TextBoxMartOdenen.Text = selectedYearDuePayment?.MartAidat.ToString() ?? "0";
-            TextBoxNisanOdenen.Text = selectedYearDuePayment?.NisanAidat.ToString() ?? "0";
-            TextBoxMayisOdenen.Text = selectedYearDuePayment?.MayisAidat.ToString() ?? "0";
-            TextBoxHaziranOdenen.Text = selectedYearDuePayment?.HaziranAidat.ToString() ?? "0";
-            TextBoxTemmuzOdenen.Text = selectedYearDuePayment?.TemmuzAidat.ToString() ?? "0";
-            TextBoxAgustosOdenen.Text = selectedYearDuePayment?.AgustosAidat.ToString() ?? "0";
-            TextBoxEylulOdenen.Text = selectedYearDuePayment?.EylulAidat.ToString() ?? "0";
-            TextBoxEkimOdenen.Text = selectedYearDuePayment?.EkimAidat.ToString() ?? "0";
-            TextBoxKasimOdenen.Text = selectedYearDuePayment?.KasimAidat.ToString() ?? "0";
-            TextBoxAralikOdenen.Text = selectedYearDuePayment?.AralikAidat.ToString() ?? "0";
-
+            if (selectedYearDues.Count > 0)
+            {
+                TextBoxOcakOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[0].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxSubatOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[1].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxMartOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[2].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxNisanOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[3].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxMayisOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[4].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxHaziranOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[5].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxTemmuzOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[6].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxAgustosOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[7].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxEylulOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[8].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxEkimOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[9].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxKasimOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[10].Id)?.Data.PaymentAmount.ToString() ?? "0";
+                TextBoxAralikOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[11].Id)?.Data.PaymentAmount.ToString() ?? "0";
+            }
         }
 
         private void AssignDues()
         {
-            Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
+            var selectedYearDues = _dueManager.GetAll(a => a.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text));
 
-            LabelOcakAidat.Text = dues?.OcakAidat.ToString() ?? "0";
-            LabelSubatAidat.Text = dues?.SubatAidat.ToString() ?? "0";
-            LabelMartAidat.Text = dues?.MartAidat.ToString() ?? "0";
-            LabelNisanAidat.Text = dues?.NisanAidat.ToString() ?? "0";
-            LabelMayisAidat.Text = dues?.MayisAidat.ToString() ?? "0";
-            LabelHaziranAidat.Text = dues?.HaziranAidat.ToString() ?? "0";
-            LabelTemmuzAidat.Text = dues?.TemmuzAidat.ToString() ?? "0";
-            LabelAgustosAidat.Text = dues?.AgustosAidat.ToString() ?? "0";
-            LabelEylulAidat.Text = dues?.EylulAidat.ToString() ?? "0";
-            LabelEkimAidat.Text = dues?.EkimAidat.ToString() ?? "0";
-            LabelKasimAidat.Text = dues?.KasimAidat.ToString() ?? "0";
-            LabelAralikAidat.Text = dues?.AralikAidat.ToString() ?? "0";
+            LabelOcakAidat.Text = selectedYearDues.Data[0].DueAmount.ToString() ?? "0";
+            LabelSubatAidat.Text = selectedYearDues.Data[1].DueAmount.ToString() ?? "0";
+            LabelMartAidat.Text = selectedYearDues.Data[2].DueAmount.ToString() ?? "0";
+            LabelNisanAidat.Text = selectedYearDues.Data[3].DueAmount.ToString() ?? "0";
+            LabelMayisAidat.Text = selectedYearDues.Data[4].DueAmount.ToString() ?? "0";
+            LabelHaziranAidat.Text = selectedYearDues.Data[5].DueAmount.ToString() ?? "0";
+            LabelTemmuzAidat.Text = selectedYearDues.Data[6].DueAmount.ToString() ?? "0";
+            LabelAgustosAidat.Text = selectedYearDues.Data[7].DueAmount.ToString() ?? "0";
+            LabelEylulAidat.Text = selectedYearDues.Data[8].DueAmount.ToString() ?? "0";
+            LabelEkimAidat.Text = selectedYearDues.Data[9].DueAmount.ToString() ?? "0";
+            LabelKasimAidat.Text = selectedYearDues.Data[10].DueAmount.ToString() ?? "0";
+            LabelAralikAidat.Text = selectedYearDues.Data[11].DueAmount.ToString() ?? "0";
         }
 
         private void AssignDebts()
         {
-            DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
-            Due dues = _dueManager.Get(d => d.Year == ComboBoxYear.Text).Data;
+            var selectedYearDues = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text));
+            var memberPayments = _duePaymentManager.GetAll(d => d.MemberTC == _member.TcKimlik).Data.ToList();
 
-            int startMonth = _member.UyelikTarihi!.Value.Month;
-            int currentMonth = DateTime.Now.Month;
+            var selectedYearPayments = memberPayments.Where(d => selectedYearDues.Data.Any(p => p.Id == d.DueId)).ToList();
 
-            LabelOcakKalan.Text = GetRemainingAmount(dues?.OcakAidat, duePayment?.OcakAidat, startMonth, 1, currentMonth);
-            LabelSubatKalan.Text = GetRemainingAmount(dues?.SubatAidat, duePayment?.SubatAidat, startMonth, 2, currentMonth);
-            LabelMartKalan.Text = GetRemainingAmount(dues?.MartAidat, duePayment?.MartAidat, startMonth, 3, currentMonth);
-            LabelNisanKalan.Text = GetRemainingAmount(dues?.NisanAidat, duePayment?.NisanAidat, startMonth, 4, currentMonth);
-            LabelMayisKalan.Text = GetRemainingAmount(dues?.MayisAidat, duePayment?.MayisAidat, startMonth, 5, currentMonth);
-            LabelHaziranKalan.Text = GetRemainingAmount(dues?.HaziranAidat, duePayment?.HaziranAidat, startMonth, 6, currentMonth);
-            LabelTemmuzKalan.Text = GetRemainingAmount(dues?.TemmuzAidat, duePayment?.TemmuzAidat, startMonth, 7, currentMonth);
-            LabelAgustosKalan.Text = GetRemainingAmount(dues?.AgustosAidat, duePayment?.AgustosAidat, startMonth, 8, currentMonth);
-            LabelEylulKalan.Text = GetRemainingAmount(dues?.EylulAidat, duePayment?.EylulAidat, startMonth, 9, currentMonth);
-            LabelEkimKalan.Text = GetRemainingAmount(dues?.EkimAidat, duePayment?.EkimAidat, startMonth, 10, currentMonth);
-            LabelKasimKalan.Text = GetRemainingAmount(dues?.KasimAidat, duePayment?.KasimAidat, startMonth, 11, currentMonth);
-            LabelAralikKalan.Text = GetRemainingAmount(dues?.AralikAidat, duePayment?.AralikAidat, startMonth, 12, currentMonth);
-        }
-
-        private string GetRemainingAmount(double? due, double? paid, int startMonth, int currentMonth, int nowMonth)
-        {
-            DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
-
-            if (ComboBoxYear.Text == (duePayment?.Year ?? DateTime.Now.Year.ToString()))
+            if (selectedYearPayments.Count > 0)
             {
-                if (currentMonth < startMonth || currentMonth > nowMonth)
-                {
-                    return "Üye değildi";
-                }
-                else if (!_member.Aktif)
-                {
-                    return "Üyelik Pasif";
-                }
-
-                return $"{due - paid}" ?? "0";
+                LabelOcakKalan.Text = (selectedYearDues.Data[0].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[0].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelSubatKalan.Text = (selectedYearDues.Data[1].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[1].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelMartKalan.Text = (selectedYearDues.Data[2].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[2].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelNisanKalan.Text = (selectedYearDues.Data[3].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[3].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelMayisKalan.Text = (selectedYearDues.Data[4].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[4].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelHaziranKalan.Text = (selectedYearDues.Data[5].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[5].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelTemmuzKalan.Text = (selectedYearDues.Data[6].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[6].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelAgustosKalan.Text = (selectedYearDues.Data[7].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[7].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelEylulKalan.Text = (selectedYearDues.Data[8].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[8].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelEkimKalan.Text = (selectedYearDues.Data[9].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[9].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelKasimKalan.Text = (selectedYearDues.Data[10].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[10].Id)?.Data.PaymentAmount).ToString() ?? "0";
+                LabelAralikKalan.Text = (selectedYearDues.Data[11].DueAmount - _duePaymentManager.Get(d => d.DueId == selectedYearDues.Data[11].Id)?.Data.PaymentAmount).ToString() ?? "0";
             }
             else
             {
-                return $"{due - paid}" ?? "0";
+                LabelOcakKalan.Text = "0";
+                LabelSubatKalan.Text = "0";
+                LabelMartKalan.Text = "0";
+                LabelNisanKalan.Text = "0";
+                LabelMayisKalan.Text = "0";
+                LabelHaziranKalan.Text = "0";
+                LabelTemmuzKalan.Text = "0";
+                LabelAgustosKalan.Text = "0";
+                LabelEylulKalan.Text = "0";
+                LabelEkimKalan.Text = "0";
+                LabelKasimKalan.Text = "0";
+                LabelAralikKalan.Text = "0";
             }
         }
 
         private void ComboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DuePayment duePayment = _duePaymentManager.Get(d => d.Year == ComboBoxYear.Text).Data;
-
-            TextBoxOcakOdenen.Text = duePayment?.OcakAidat.ToString() ?? "0";
-            TextBoxSubatOdenen.Text = duePayment?.SubatAidat.ToString() ?? "0";
-            TextBoxMartOdenen.Text = duePayment?.MartAidat.ToString() ?? "0";
-            TextBoxNisanOdenen.Text = duePayment?.NisanAidat.ToString() ?? "0";
-            TextBoxMayisOdenen.Text = duePayment?.MayisAidat.ToString() ?? "0";
-            TextBoxHaziranOdenen.Text = duePayment?.HaziranAidat.ToString() ?? "0";
-            TextBoxTemmuzOdenen.Text = duePayment?.TemmuzAidat.ToString() ?? "0";
-            TextBoxAgustosOdenen.Text = duePayment?.AgustosAidat.ToString() ?? "0";
-            TextBoxEylulOdenen.Text = duePayment?.EylulAidat.ToString() ?? "0";
-            TextBoxEkimOdenen.Text = duePayment?.EkimAidat.ToString() ?? "0";
-            TextBoxKasimOdenen.Text = duePayment?.KasimAidat.ToString() ?? "0";
-            TextBoxAralikOdenen.Text = duePayment?.AralikAidat.ToString() ?? "0";
-
             AssignDefaultValues(_member);
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            DuePayment duePayment = new()
+            SaveDuePayment(TextBoxOcakOdenen, 1);
+            SaveDuePayment(TextBoxSubatOdenen, 2);
+            SaveDuePayment(TextBoxMartOdenen, 3);
+            SaveDuePayment(TextBoxNisanOdenen, 4);
+            SaveDuePayment(TextBoxMayisOdenen, 5);
+            SaveDuePayment(TextBoxHaziranOdenen, 6);
+            SaveDuePayment(TextBoxTemmuzOdenen, 7);
+            SaveDuePayment(TextBoxAgustosOdenen, 8);
+            SaveDuePayment(TextBoxEylulOdenen, 9);
+            SaveDuePayment(TextBoxEkimOdenen, 10);
+            SaveDuePayment(TextBoxKasimOdenen, 11);
+            SaveDuePayment(TextBoxAralikOdenen, 12);
+
+            this.Close();
+        }
+
+        private void SaveDuePayment(Control textBox, int month)
+        {
+            var year = Convert.ToInt32(ComboBoxYear.Text);
+
+            var due = _dueManager.Get(d => d.DueDate.Year == year && d.DueDate.Month == month).Data;
+
+            var duePayment = new DuePayment()
             {
+                DueId = due.Id,
                 MemberTC = _member.TcKimlik,
-                Year = ComboBoxYear.Text,
-                OcakAidat = TextBoxOcakOdenen.Text.ToDouble(),
-                SubatAidat = TextBoxSubatOdenen.Text.ToDouble(),
-                MartAidat = TextBoxMartOdenen.Text.ToDouble(),
-                NisanAidat = TextBoxNisanOdenen.Text.ToDouble(),
-                MayisAidat = TextBoxMayisOdenen.Text.ToDouble(),
-                HaziranAidat = TextBoxHaziranOdenen.Text.ToDouble(),
-                TemmuzAidat = TextBoxTemmuzOdenen.Text.ToDouble(),
-                AgustosAidat = TextBoxAgustosOdenen.Text.ToDouble(),
-                EylulAidat = TextBoxEylulOdenen.Text.ToDouble(),
-                EkimAidat = TextBoxEkimOdenen.Text.ToDouble(),
-                KasimAidat = TextBoxKasimOdenen.Text.ToDouble(),
-                AralikAidat = TextBoxAralikOdenen.Text.ToDouble(),
+                PaymentAmount = textBox.Text.ToDouble()
             };
 
             var res = _duePaymentManager.Add(duePayment);
-
-            MessageBox.Show(res.Message);
-
-            this.Close();
         }
     }
 }

@@ -37,80 +37,35 @@ namespace DernekTakipApp.Forms
 
         private void CalculateAndDisplayTotalDebts()
         {
-            // Her bir üyenin toplam borcunu hesaplayarak bir DataTable oluştur
-            DataTable dataTable = new DataTable();
+            var dataTable = new DataTable();
             dataTable.Columns.Add("TC Kimlik", typeof(string));
             dataTable.Columns.Add("Toplam Borç", typeof(double));
 
-            foreach (Member member in _members)
+            foreach (var member in _members)
             {
-                double totalDebt = CalculateTotalDebt(member.TcKimlik);
+                var totalDebt = CalculateTotalDebt(member.TcKimlik);
                 dataTable.Rows.Add(member.TcKimlik, totalDebt);
             }
 
-            // DataTable'ı DataGridView'a bağla
             DataGridViewMemberDebts.DataSource = dataTable;
         }
 
-        private double CalculateTotalDebt(string memberTC)
+        private double CalculateTotalDebt(string memberTc)
         {
+            var startDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
+            var endDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker2.Value.Month, 1);
+
+            var dues = _dueManager.GetAll(d => d.DueDate >= startDate && d.DueDate <= endDate).Data.ToList();
+
             var totalPayment = _duePayments
-                .Where(d => d.MemberTC == memberTC)
-                .Sum(d => CalculateRemainingAmount(d));
+                .Where(p=> p.MemberTC == memberTc && dues.Any(d=> d.Id == p.DueId)).ToList();
 
-            var mustPay = _dueManager.GetAll().Data.Where(d => d.Year == "2023")
-                .Sum(d=> d.OcakAidat + d.SubatAidat + d.MartAidat + d.NisanAidat 
-                         + d.MayisAidat + d.HaziranAidat + d.TemmuzAidat + d.AgustosAidat 
-                         + d.EylulAidat + d.EkimAidat + d.KasimAidat + d.AralikAidat);
-
-            return mustPay - totalPayment;
+            return dues.Sum(d=> d.DueAmount) - totalPayment.Sum(p=> p.PaymentAmount);
         }
 
-        private double CalculateRemainingAmount(DuePayment duePayment)
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            // Geçerli aylara ait aidatların toplamını hesapla
-            int currentMonth = DateTime.Now.Month;
-            double remainingAmount = 0;
 
-            for (int month = 1; month <= currentMonth; month++)
-            {
-                remainingAmount += GetRemainingAmount(duePayment, month);
-            }
-
-            return remainingAmount;
-        }
-
-        public double GetRemainingAmount(DuePayment duePayment, int currentMonth)
-        {
-            double currentMonthAidat = GetAidatAmount(duePayment, currentMonth);
-            double currentMonthPaid = GetPaidAmount(duePayment, currentMonth);
-
-            return currentMonthAidat - currentMonthPaid;
-        }
-
-        private double GetAidatAmount(DuePayment duePayment, int currentMonth)
-        {
-            switch (currentMonth)
-            {
-                case 1: return duePayment.OcakAidat;
-                case 2: return duePayment.SubatAidat;
-                case 3: return duePayment.MartAidat;
-                case 4: return duePayment.NisanAidat;
-                case 5: return duePayment.MayisAidat;
-                case 6: return duePayment.HaziranAidat;
-                case 7: return duePayment.TemmuzAidat;
-                case 8: return duePayment.AgustosAidat;
-                case 9: return duePayment.EylulAidat;
-                case 10: return duePayment.EkimAidat;
-                case 11: return duePayment.KasimAidat;
-                case 12: return duePayment.AralikAidat;
-                default: return 0; // Geçersiz ay
-            }
-        }
-
-        private double GetPaidAmount(DuePayment duePayment, int currentMonth)
-        {
-            return 0; // Örnekte herhangi bir ödeme yapılmadığını varsayalım
         }
     }
 }

@@ -10,11 +10,11 @@ namespace Business.Concrete
 {
     public class DueManager : IDueManager
     {
-        readonly IDueDal _dueDal;
+        private readonly IDueDal _dueDal;
 
-        public DueManager(IDueDal DueDal)
+        public DueManager(IDueDal dueDal)
         {
-            _dueDal = DueDal;
+            _dueDal = dueDal;
         }
 
         public IResult Add(Due due)
@@ -23,7 +23,7 @@ namespace Business.Concrete
 
             if (result == null)
             {
-                var filteredData = _dueDal.GetAll(d => d.Year == due.Year).FirstOrDefault();
+                var filteredData = _dueDal.GetAll(d => d.DueDate.Year == due.DueDate.Year && d.DueDate.Month == due.DueDate.Month).FirstOrDefault();
 
                 due.Id = filteredData!.Id;
 
@@ -39,13 +39,13 @@ namespace Business.Concrete
             }
         }
 
-        public IResult Delete(Due Due)
+        public IResult Delete(Due due)
         {
-            IResult result = BusinessRules.Run(CheckDueExist(Due))!;
+            IResult result = BusinessRules.Run(CheckDueExist(due))!;
 
             if (result == null)
             {
-                _dueDal.Delete(Due);
+                _dueDal.Delete(due);
 
                 return new SuccessResult(Messages.DueDeleted);
             }
@@ -73,30 +73,27 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Due>>(_dueDal.GetAll(filter!));
         }
 
-        public IResult Update(Due Due)
+        public IResult Update(Due due)
         {
-            _dueDal.Update(Due);
+            _dueDal.Update(due);
 
             return new SuccessResult(Messages.DueUpdated);
         }
 
         private IResult CheckDueExist(Due due)
         {
-            if (due != null)
-            {
-                var filteredData = _dueDal.GetAll(d => d.Year == due.Year).FirstOrDefault();
+            if (due == null) return new ErrorResult(Messages.IncompleteInfo);
+            var filteredData = _dueDal.GetAll(d => d.DueDate.Year == due.DueDate.Year && d.DueDate.Month == due.DueDate.Month).FirstOrDefault();
 
-                if (filteredData != null)
-                {
-                    return new SuccessResult();
-                }
-                else
-                {
-                    return new ErrorResult(Messages.DataNotFound);
-                }
+            if (filteredData != null)
+            {
+                return new SuccessResult();
+            }
+            else
+            {
+                return new ErrorResult(Messages.DataNotFound);
             }
 
-            return new ErrorResult(Messages.IncompleteInfo);
         }
     }
 }

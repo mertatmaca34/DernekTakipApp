@@ -10,11 +10,11 @@ namespace Business.Concrete
 {
     public class DuePaymentManager : IDuePaymentManager
     {
-        readonly IDuePaymentDal _duePaymentDal;
+        private readonly IDuePaymentDal _duePaymentDal;
 
-        public DuePaymentManager(IDuePaymentDal DuePaymentDal)
+        public DuePaymentManager(IDuePaymentDal duePaymentDal)
         {
-            _duePaymentDal = DuePaymentDal;
+            _duePaymentDal = duePaymentDal;
         }
 
         public IResult Add(DuePayment duePayment)
@@ -23,7 +23,7 @@ namespace Business.Concrete
 
             if (result == null)
             {
-                var filteredData = _duePaymentDal.GetAll(d => d.Year == duePayment.Year).FirstOrDefault();
+                var filteredData = _duePaymentDal.GetAll(d => d.Id == duePayment.Id).FirstOrDefault();
 
                 duePayment.Id = filteredData!.Id;
 
@@ -84,7 +84,7 @@ namespace Business.Concrete
         {
             if (duePayment != null)
             {
-                var filteredData = _duePaymentDal.GetAll(d => d.Year == duePayment.Year && d.MemberTC == duePayment.MemberTC).FirstOrDefault();
+                var filteredData = _duePaymentDal.GetAll(d => d.Id == duePayment.Id && d.MemberTC == duePayment.MemberTC).FirstOrDefault();
 
                 if (filteredData != null)
                 {
