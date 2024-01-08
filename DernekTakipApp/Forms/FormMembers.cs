@@ -33,11 +33,18 @@ namespace DernekTakipApp.Forms
         {
             FormNewMember formNewMember = new(_memberManager);
             formNewMember.ShowDialog();
+
+            DataGridViewCustomization();
         }
 
         private void DataGridViewCustomization(List<Member> members = null)
         {
             DataGridViewMembers.DataSource = null;
+
+            if (members == null)
+            {
+                members = _memberManager.GetAll().Data.ToList();
+            }
             DataGridViewMembers.DataSource = members;
 
             DataGridViewMembers.Columns[3].HeaderText = "TCKN";
@@ -79,7 +86,7 @@ namespace DernekTakipApp.Forms
 
                         formNewMember.ShowDialog(this);
 
-                        DataGridViewCustomization(_members);
+                        DataGridViewCustomization();
                         break;
                     }
                 case { ColumnIndex: 1, RowIndex: >= 0 }:
@@ -88,13 +95,13 @@ namespace DernekTakipApp.Forms
 
                         if (res == DialogResult.Yes)
                         {
-                            var tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[2].Value.ToString()!;
+                            var tckn = DataGridViewMembers.Rows[e.RowIndex].Cells[3].Value.ToString()!;
 
                             Member member = new() { TcKimlik = tckn };
 
                             var result = _memberManager.Delete(member);
 
-                            DataGridViewCustomization(_members);
+                            DataGridViewCustomization();
 
                             MessageBox.Show(result.Message);
                         }
@@ -121,12 +128,16 @@ namespace DernekTakipApp.Forms
         {
             var filteredMembers = _members.Where(m => m.KanGrubu == ComboBoxFilterBloodGroup.Text).ToList();
 
+            ComboBoxFilterCity.SelectedItem = null;
+
             DataGridViewCustomization(filteredMembers);
         }
 
         private void ComboBoxFilterCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             var filteredMembers = _members.Where(m => m.Sehir == ComboBoxFilterCity.Text).ToList();
+
+            ComboBoxFilterBloodGroup.SelectedItem = null;
 
             DataGridViewCustomization(filteredMembers);
         }
@@ -151,6 +162,14 @@ namespace DernekTakipApp.Forms
             }).ToList();
 
             DataGridViewCustomization(filteredMembers);
+        }
+
+        private void ButtonClearFilter_Click(object sender, EventArgs e)
+        {
+            ComboBoxFilterBloodGroup.SelectedItem = null;
+            ComboBoxFilterCity.SelectedItem = null;
+
+            DataGridViewCustomization();
         }
     }
 }

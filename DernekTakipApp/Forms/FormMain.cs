@@ -47,5 +47,13 @@ namespace DernekTakipApp
         {
             ColorTransformations.Replace(TableLayoutPanelLeftBar, ButtonMail);
         }
+
+        private void FormMain_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Form activeForm in PanelContent.Controls)
+            {
+                activeForm.Size = PanelContent.Size;
+            }
+        }
     }
 }

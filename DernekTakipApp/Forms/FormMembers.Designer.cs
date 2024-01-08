@@ -41,11 +41,12 @@
             DeleteColumn = new DataGridViewImageColumn();
             PaymentColumn = new DataGridViewButtonColumn();
             tableLayoutPanel2 = new TableLayoutPanel();
-            TextBoxSearch = new TextBox();
             label2 = new Label();
             ComboBoxFilterBloodGroup = new ComboBox();
             label3 = new Label();
             ComboBoxFilterCity = new ComboBox();
+            TextBoxSearch = new TextBox();
+            ButtonClearFilter = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridViewMembers).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -191,18 +192,20 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 5;
+            tableLayoutPanel2.ColumnCount = 6;
             tableLayoutPanel1.SetColumnSpan(tableLayoutPanel2, 2);
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 125F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Controls.Add(TextBoxSearch, 4, 0);
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.9981289F));
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(ComboBoxFilterBloodGroup, 1, 0);
             tableLayoutPanel2.Controls.Add(label3, 2, 0);
             tableLayoutPanel2.Controls.Add(ComboBoxFilterCity, 3, 0);
+            tableLayoutPanel2.Controls.Add(TextBoxSearch, 5, 0);
+            tableLayoutPanel2.Controls.Add(ButtonClearFilter, 4, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 85);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -210,18 +213,6 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(996, 29);
             tableLayoutPanel2.TabIndex = 4;
-            // 
-            // TextBoxSearch
-            // 
-            TextBoxSearch.Anchor = AnchorStyles.Right;
-            TextBoxSearch.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            TextBoxSearch.Location = new Point(749, 3);
-            TextBoxSearch.Name = "TextBoxSearch";
-            TextBoxSearch.PlaceholderText = "Akıllı Arama";
-            TextBoxSearch.Size = new Size(244, 23);
-            TextBoxSearch.TabIndex = 2;
-            TextBoxSearch.Text = " ";
-            TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
             // 
             // label2
             // 
@@ -241,7 +232,7 @@
             ComboBoxFilterBloodGroup.Items.AddRange(new object[] { "A Rh(+)", "A Rh(-)", "B Rh(+)", "B Rh(-)", "AB Rh(+)", "AB Rh(-)", "0 Rh(+)", "0 Rh(-)" });
             ComboBoxFilterBloodGroup.Location = new Point(128, 3);
             ComboBoxFilterBloodGroup.Name = "ComboBoxFilterBloodGroup";
-            ComboBoxFilterBloodGroup.Size = new Size(251, 23);
+            ComboBoxFilterBloodGroup.Size = new Size(186, 23);
             ComboBoxFilterBloodGroup.TabIndex = 5;
             ComboBoxFilterBloodGroup.SelectedIndexChanged += ComboBoxFilterBloodGroup_SelectedIndexChanged;
             // 
@@ -249,7 +240,7 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(409, 7);
+            label3.Location = new Point(344, 7);
             label3.Name = "label3";
             label3.Size = new Size(70, 15);
             label3.TabIndex = 4;
@@ -261,12 +252,34 @@
             ComboBoxFilterCity.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxFilterCity.FormattingEnabled = true;
             ComboBoxFilterCity.Items.AddRange(new object[] { "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri", "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir", "Kars", "Kastamonu", "Kayseri", "Kırklareli", "Kırşehir", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "K.maraş", "Mardin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Şanlıurfa", "Uşak", "Van", "Yozgat", "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kırıkkale", "Batman", "Şırnak", "Bartın", "Ardahan", "Iğdır", "Yalova", "Karabük", "Kilis", "Osmaniye", "Düzce" });
-            ComboBoxFilterCity.Location = new Point(485, 3);
+            ComboBoxFilterCity.Location = new Point(420, 3);
             ComboBoxFilterCity.Margin = new Padding(3, 3, 20, 3);
             ComboBoxFilterCity.Name = "ComboBoxFilterCity";
-            ComboBoxFilterCity.Size = new Size(234, 23);
+            ComboBoxFilterCity.Size = new Size(169, 23);
             ComboBoxFilterCity.TabIndex = 5;
             ComboBoxFilterCity.SelectedIndexChanged += ComboBoxFilterCity_SelectedIndexChanged;
+            // 
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Dock = DockStyle.Fill;
+            TextBoxSearch.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            TextBoxSearch.Location = new Point(804, 3);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PlaceholderText = "Akıllı Arama";
+            TextBoxSearch.Size = new Size(189, 23);
+            TextBoxSearch.TabIndex = 2;
+            TextBoxSearch.Text = " ";
+            TextBoxSearch.TextChanged += TextBoxSearch_TextChanged;
+            // 
+            // ButtonClearFilter
+            // 
+            ButtonClearFilter.Location = new Point(612, 3);
+            ButtonClearFilter.Name = "ButtonClearFilter";
+            ButtonClearFilter.Size = new Size(112, 23);
+            ButtonClearFilter.TabIndex = 6;
+            ButtonClearFilter.Text = "Filtre Temizle";
+            ButtonClearFilter.UseVisualStyleBackColor = true;
+            ButtonClearFilter.Click += ButtonClearFilter_Click;
             // 
             // FormMembers
             // 
@@ -302,5 +315,6 @@
         private ComboBox ComboBoxFilterBloodGroup;
         private Label label3;
         private ComboBox ComboBoxFilterCity;
+        private Button ButtonClearFilter;
     }
 }

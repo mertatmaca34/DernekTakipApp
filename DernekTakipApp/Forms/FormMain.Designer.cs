@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             TableLayoutPanelLeftBar = new TableLayoutPanel();
+            button1 = new Button();
             ButtonMail = new Button();
             ButtonPayments = new Button();
             ButtonDues = new Button();
@@ -43,10 +44,11 @@
             TableLayoutPanelLeftBar.BackColor = Color.White;
             TableLayoutPanelLeftBar.ColumnCount = 1;
             TableLayoutPanelLeftBar.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            TableLayoutPanelLeftBar.Controls.Add(ButtonMail, 0, 3);
-            TableLayoutPanelLeftBar.Controls.Add(ButtonPayments, 0, 2);
-            TableLayoutPanelLeftBar.Controls.Add(ButtonDues, 0, 1);
-            TableLayoutPanelLeftBar.Controls.Add(ButtonMembers, 0, 0);
+            TableLayoutPanelLeftBar.Controls.Add(button1, 0, 0);
+            TableLayoutPanelLeftBar.Controls.Add(ButtonMail, 0, 4);
+            TableLayoutPanelLeftBar.Controls.Add(ButtonPayments, 0, 3);
+            TableLayoutPanelLeftBar.Controls.Add(ButtonDues, 0, 2);
+            TableLayoutPanelLeftBar.Controls.Add(ButtonMembers, 0, 1);
             TableLayoutPanelLeftBar.Dock = DockStyle.Left;
             TableLayoutPanelLeftBar.Location = new Point(0, 0);
             TableLayoutPanelLeftBar.Name = "TableLayoutPanelLeftBar";
@@ -62,6 +64,25 @@
             TableLayoutPanelLeftBar.Size = new Size(90, 681);
             TableLayoutPanelLeftBar.TabIndex = 1;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(230, 230, 230);
+            button1.Dock = DockStyle.Fill;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.DimGray;
+            button1.Image = Properties.Resources.management_24px;
+            button1.Location = new Point(8, 8);
+            button1.Margin = new Padding(8);
+            button1.Name = "button1";
+            button1.Size = new Size(74, 68);
+            button1.TabIndex = 5;
+            button1.Text = "Anasayfa";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.UseVisualStyleBackColor = false;
+            // 
             // ButtonMail
             // 
             ButtonMail.Dock = DockStyle.Fill;
@@ -70,7 +91,7 @@
             ButtonMail.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMail.ForeColor = Color.DimGray;
             ButtonMail.Image = Properties.Resources.mail_24px;
-            ButtonMail.Location = new Point(8, 260);
+            ButtonMail.Location = new Point(8, 344);
             ButtonMail.Margin = new Padding(8);
             ButtonMail.Name = "ButtonMail";
             ButtonMail.Size = new Size(74, 68);
@@ -88,7 +109,7 @@
             ButtonPayments.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonPayments.ForeColor = Color.DimGray;
             ButtonPayments.Image = Properties.Resources.transaction_24px;
-            ButtonPayments.Location = new Point(8, 176);
+            ButtonPayments.Location = new Point(8, 260);
             ButtonPayments.Margin = new Padding(8);
             ButtonPayments.Name = "ButtonPayments";
             ButtonPayments.Size = new Size(74, 68);
@@ -106,7 +127,7 @@
             ButtonDues.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonDues.ForeColor = Color.DimGray;
             ButtonDues.Image = Properties.Resources.stack_of_coins_24px;
-            ButtonDues.Location = new Point(8, 92);
+            ButtonDues.Location = new Point(8, 176);
             ButtonDues.Margin = new Padding(8);
             ButtonDues.Name = "ButtonDues";
             ButtonDues.Size = new Size(74, 68);
@@ -118,7 +139,6 @@
             // 
             // ButtonMembers
             // 
-            ButtonMembers.BackColor = Color.FromArgb(230, 230, 230);
             ButtonMembers.Dock = DockStyle.Fill;
             ButtonMembers.FlatAppearance.BorderSize = 0;
             ButtonMembers.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
@@ -126,7 +146,7 @@
             ButtonMembers.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMembers.ForeColor = Color.DimGray;
             ButtonMembers.Image = Properties.Resources.management_24px;
-            ButtonMembers.Location = new Point(8, 8);
+            ButtonMembers.Location = new Point(8, 92);
             ButtonMembers.Margin = new Padding(8);
             ButtonMembers.Name = "ButtonMembers";
             ButtonMembers.Size = new Size(74, 68);
@@ -157,6 +177,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dernek Takip Programı";
             Load += FormMain_Load;
+            SizeChanged += FormMain_SizeChanged;
             TableLayoutPanelLeftBar.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -169,5 +190,6 @@
         private Button ButtonDues;
         private Button ButtonMembers;
         private Panel PanelContent;
+        private Button button1;
     }
 }

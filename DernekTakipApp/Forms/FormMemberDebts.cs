@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DernekTakipApp.Enums;
 
 namespace DernekTakipApp.Forms
 {
@@ -32,40 +33,83 @@ namespace DernekTakipApp.Forms
             _members = _memberManager.GetAll().Data;
             _duePayments = _duePaymentManager.GetAll().Data;
 
-            CalculateAndDisplayTotalDebts();
+            ComboBoxFilter.Text = "HEPSİ";
+
+            CalculateAndDisplay();
         }
 
-        private void CalculateAndDisplayTotalDebts()
+        private void CalculateAndDisplay()
         {
             var dataTable = new DataTable();
-            dataTable.Columns.Add("TC Kimlik", typeof(string));
-            dataTable.Columns.Add("Toplam Borç", typeof(double));
 
-            foreach (var member in _members)
+            if (ComboBoxFilter.Text == "HEPSİ")
             {
-                var totalDebt = CalculateTotalDebt(member.TcKimlik);
-                dataTable.Rows.Add(member.TcKimlik, totalDebt);
+                dataTable.Columns.Add("TC Kimlik", typeof(string));
+                dataTable.Columns.Add("Toplam Borç", typeof(double));
+                dataTable.Columns.Add("Toplam Ödeme", typeof(double));
+
+                foreach (var member in _members)
+                {
+                    var totalDebt = CalculateTotalDebt(member.TcKimlik, PaymentType.Debt);
+                    var totalPayment = CalculateTotalDebt(member.TcKimlik, PaymentType.Payment);
+
+                    dataTable.Rows.Add(member.TcKimlik, totalDebt, totalPayment);
+                }
+            }
+            else if (ComboBoxFilter.Text == "ÖDEME YAPANLAR")
+            {
+                dataTable.Columns.Add("TC Kimlik", typeof(string));
+                dataTable.Columns.Add("Toplam Ödeme", typeof(double));
+
+                foreach (var member in _members)
+                {
+                    var totalPayment = CalculateTotalDebt(member.TcKimlik, PaymentType.Payment);
+
+                    dataTable.Rows.Add(member.TcKimlik, totalPayment);
+                }
+            }
+
+            else if (ComboBoxFilter.Text == "ÖDEME YAPMAYANLAR")
+            {
+                dataTable.Columns.Add("TC Kimlik", typeof(string));
+                dataTable.Columns.Add("Toplam Borç", typeof(double));
+
+                foreach (var member in _members)
+                {
+                    var totalDebt = CalculateTotalDebt(member.TcKimlik, PaymentType.Debt);
+
+                    dataTable.Rows.Add(member.TcKimlik, totalDebt);
+                }
             }
 
             DataGridViewMemberDebts.DataSource = dataTable;
+            DataGridViewMemberDebts.Refresh();
         }
 
-        private double CalculateTotalDebt(string memberTc)
+        private double CalculateTotalDebt(string memberTc, PaymentType paymentType)
         {
             var startDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
-            var endDate = new DateTime(dateTimePicker1.Value.Year, dateTimePicker2.Value.Month, 1);
+            var endDate = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month, 1);
 
             var dues = _dueManager.GetAll(d => d.DueDate >= startDate && d.DueDate <= endDate).Data.ToList();
 
             var totalPayment = _duePayments
-                .Where(p=> p.MemberTC == memberTc && dues.Any(d=> d.Id == p.DueId)).ToList();
+                .Where(p => p.MemberTC == memberTc && dues.Any(d => d.Id == p.DueId)).ToList();
 
-            return dues.Sum(d=> d.DueAmount) - totalPayment.Sum(p=> p.PaymentAmount);
+            if (paymentType == PaymentType.Debt)
+            {
+                return dues.Sum(d => d.DueAmount) - totalPayment.Sum(p => p.PaymentAmount);
+
+            }
+            else
+            {
+                return totalPayment.Sum(d => d.PaymentAmount);
+            }
         }
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-
+            CalculateAndDisplay();
         }
     }
 }

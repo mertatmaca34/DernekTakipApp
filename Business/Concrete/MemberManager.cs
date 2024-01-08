@@ -17,19 +17,19 @@ namespace Business.Concrete
             _memberDal = MemberDal;
         }
 
-        public IResult Add(Member Member)
+        public IResult Add(Member member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
+            IResult result = BusinessRules.Run(CheckMemberExist(member))!;
 
             if (result == null)
             {
-                this.Update(Member);
+                this.Update(member);
 
                 return new SuccessResult(Messages.MemberUpdated);
             }
             else if (result != null)
             {
-                _memberDal.Add(Member);
+                _memberDal.Add(member);
 
                 return new SuccessResult(Messages.MemberAdded);
             }
@@ -37,13 +37,14 @@ namespace Business.Concrete
             return new ErrorResult(Messages.IncompleteInfo);
         }
 
-        public IResult Delete(Member Member)
+        public IResult Delete(Member member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
+            IResult result = BusinessRules.Run(CheckMemberExist(member))!;
 
             if (result == null)
             {
-                _memberDal.Delete(Member);
+                var existMember = _memberDal.Get(m => m.TcKimlik == member.TcKimlik);
+                _memberDal.Delete(existMember);
 
                 return new SuccessResult(Messages.MemberDeleted);
             }
@@ -61,27 +62,27 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Member>>(_memberDal.GetAll(filter!));
         }
 
-        public IResult Update(Member Member)
+        public IResult Update(Member member)
         {
-            IResult result = BusinessRules.Run(CheckMemberExist(Member))!;
+            IResult result = BusinessRules.Run(CheckMemberExist(member))!;
 
             if (result == null)
             {
-                _memberDal.Update(Member);
+                _memberDal.Update(member);
 
                 return new SuccessResult(Messages.MemberUpdated);
             }
 
-            this.Add(Member);
+            this.Add(member);
 
             return new SuccessResult(Messages.MemberAdded);
         }
 
-        private IResult CheckMemberExist(Member Member)
+        private IResult CheckMemberExist(Member member)
         {
-            if (Member != null)
+            if (member != null)
             {
-                var filteredData = _memberDal.GetAll(d => d.TcKimlik == Member.TcKimlik).FirstOrDefault();
+                var filteredData = _memberDal.GetAll(d => d.TcKimlik == member.TcKimlik).FirstOrDefault();
 
                 if (filteredData != null)
                 {
