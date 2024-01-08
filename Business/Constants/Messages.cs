@@ -83,6 +83,10 @@
         public static string DueUpdated = "Aidat bilgileri güncellendi";
         public static string DueAdded = "Aidat başarıyla kaydedildi";
 
+        public static string EmailSettingsDeleted = "Mail bilgileri başarıyla silindi";
+        public static string EmailSettingsUpdated = "Mail bilgileri güncellendi";
+        public static string EmailSettingsAdded = "Mail başarıyla kaydedildi";
+
         public static string DuePaymentDeleted = "Aidat bilgileri başarıyla silindi";
         public static string DuePaymentUpdated = "Aidat bilgileri güncellendi";
         public static string DuePaymentAdded = "Aidat başarıyla kaydedildi";

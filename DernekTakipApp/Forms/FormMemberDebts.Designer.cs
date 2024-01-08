@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             DataGridViewMemberDebts = new DataGridView();
@@ -45,7 +45,7 @@
             groupBox3 = new GroupBox();
             ComboBoxFilter = new ComboBox();
             groupBox4 = new GroupBox();
-            button1 = new Button();
+            ButtonSendMails = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridViewMemberDebts).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -92,32 +92,32 @@
             DataGridViewMemberDebts.AllowUserToDeleteRows = false;
             DataGridViewMemberDebts.AllowUserToResizeColumns = false;
             DataGridViewMemberDebts.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            DataGridViewMemberDebts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            DataGridViewMemberDebts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             DataGridViewMemberDebts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DataGridViewMemberDebts.BackgroundColor = Color.White;
             DataGridViewMemberDebts.BorderStyle = BorderStyle.None;
             DataGridViewMemberDebts.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DataGridViewMemberDebts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(240, 236, 87);
-            dataGridViewCellStyle2.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 236, 87);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            DataGridViewMemberDebts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(240, 236, 87);
+            dataGridViewCellStyle7.Font = new Font("Bahnschrift", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new Padding(5);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(240, 236, 87);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DataGridViewMemberDebts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableLayoutPanel1.SetColumnSpan(DataGridViewMemberDebts, 2);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 206, 168);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            DataGridViewMemberDebts.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(187, 206, 168);
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.DefaultCellStyle = dataGridViewCellStyle8;
             DataGridViewMemberDebts.Dock = DockStyle.Fill;
             DataGridViewMemberDebts.EnableHeadersVisualStyles = false;
             DataGridViewMemberDebts.GridColor = Color.WhiteSmoke;
@@ -127,22 +127,22 @@
             DataGridViewMemberDebts.Name = "DataGridViewMemberDebts";
             DataGridViewMemberDebts.ReadOnly = true;
             DataGridViewMemberDebts.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            DataGridViewMemberDebts.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            DataGridViewMemberDebts.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             DataGridViewMemberDebts.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.Padding = new Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(227, 216, 126);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            DataGridViewMemberDebts.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.Padding = new Padding(5);
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(227, 216, 126);
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            DataGridViewMemberDebts.RowsDefaultCellStyle = dataGridViewCellStyle10;
             DataGridViewMemberDebts.RowTemplate.DividerHeight = 10;
             DataGridViewMemberDebts.RowTemplate.Height = 50;
             DataGridViewMemberDebts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -246,7 +246,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(button1);
+            groupBox4.Controls.Add(ButtonSendMails);
             groupBox4.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox4.Location = new Point(600, 3);
             groupBox4.Name = "groupBox4";
@@ -255,18 +255,18 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "BORÇLU BİLGİLENDİRME";
             // 
-            // button1
+            // ButtonSendMails
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.BackColor = Color.FromArgb(240, 236, 87);
-            button1.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(6, 18);
-            button1.Name = "button1";
-            button1.Size = new Size(181, 24);
-            button1.TabIndex = 1;
-            button1.Text = "MAİL GÖNDER";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += ButtonSearch_Click;
+            ButtonSendMails.Anchor = AnchorStyles.None;
+            ButtonSendMails.BackColor = Color.FromArgb(240, 236, 87);
+            ButtonSendMails.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSendMails.Location = new Point(6, 18);
+            ButtonSendMails.Name = "ButtonSendMails";
+            ButtonSendMails.Size = new Size(181, 24);
+            ButtonSendMails.TabIndex = 1;
+            ButtonSendMails.Text = "MAİL GÖNDER";
+            ButtonSendMails.UseVisualStyleBackColor = false;
+            ButtonSendMails.Click += ButtonSendMails_Click;
             // 
             // FormMemberDebts
             // 
@@ -304,6 +304,6 @@
         private ComboBox ComboBoxFilter;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
-        private Button button1;
+        private Button ButtonSendMails;
     }
 }

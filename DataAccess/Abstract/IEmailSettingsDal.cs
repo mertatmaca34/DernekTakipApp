@@ -3,5 +3,5 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IEmailSettings : IEntityRepository<EmailSettings> { }
+    public interface IEmailSettingsDal : IEntityRepository<EmailSettings> { }
 }

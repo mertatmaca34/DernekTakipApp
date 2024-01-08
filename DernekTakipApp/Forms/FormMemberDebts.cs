@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core.Services.Email;
 using DernekTakipApp.Enums;
 
 namespace DernekTakipApp.Forms
@@ -110,6 +111,15 @@ namespace DernekTakipApp.Forms
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             CalculateAndDisplay();
+        }
+
+        private async void ButtonSendMails_Click(object sender, EventArgs e)
+        {
+            EmailService emailService = new EmailService();
+
+            var res = await emailService.MailSend("mertatmaca34@gmail.com", "bu konu", "icerik");
+
+            MessageBox.Show(res);
         }
     }
 }
