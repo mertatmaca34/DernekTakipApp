@@ -10,22 +10,22 @@ namespace Core.Services.Email
 {
     public class EmailService : IEmailService
     {
-        public async Task<string> MailSend(string mailName, string subject, string body)
+        public async Task<string> MailSend(string host, string port, string userName, string password, bool useSSL, bool useDefaultCredentials, string mailName, string subject, string body)
         {
             SmtpClient smtpClient = new()
             {
-                EnableSsl = true,
-                Port = 587,
-                Host = "smtp-mail.outlook.com",
+                EnableSsl = useSSL,
+                Port = Convert.ToInt32(port),
+                Host = host,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("mertemirgorsel@outlook.com", "mertemir123")
+                UseDefaultCredentials = useDefaultCredentials,
+                Credentials = new NetworkCredential(userName, password)
             };
 
             MailMessage mailMessage = new()
             {
-                From = new MailAddress("mertemirgorsel@outlook.com"),
-                Subject = $"programdan",
+                From = new MailAddress(userName),
+                Subject = subject,
                 Body = body,
                 IsBodyHtml = true
             };
@@ -36,7 +36,7 @@ namespace Core.Services.Email
             {
                 await smtpClient.SendMailAsync(mailMessage);
 
-                return "success";
+                return "Mail başarıyla gönderildi";
             }
             catch (Exception ex)
             {

@@ -66,14 +66,13 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(230, 230, 230);
             button1.Dock = DockStyle.Fill;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.DimGray;
-            button1.Image = Properties.Resources.management_24px;
+            button1.Image = Properties.Resources.house_24px;
             button1.Location = new Point(8, 8);
             button1.Margin = new Padding(8);
             button1.Name = "button1";
@@ -139,6 +138,7 @@
             // 
             // ButtonMembers
             // 
+            ButtonMembers.BackColor = Color.FromArgb(230, 230, 230);
             ButtonMembers.Dock = DockStyle.Fill;
             ButtonMembers.FlatAppearance.BorderSize = 0;
             ButtonMembers.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);

@@ -40,6 +40,7 @@ namespace DernekTakipApp.Forms
                 TcKimlik = TextBoxTc.Text,
                 KanGrubu = ComboBoxBloodGroup.Text,
                 Sehir = ComboBoxCity.Text,
+                Mail = TextBoxMail.Text,
                 Aktif = CheckBoxMemberStatement.Checked
             };
 

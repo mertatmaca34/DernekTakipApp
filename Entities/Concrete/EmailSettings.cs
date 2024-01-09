@@ -11,5 +11,8 @@ namespace Entities.Concrete
         public string Password { get; set; }
         public bool UseSSL { get; set; }
         public bool UseDefaultCredentials { get; set; }
+        public string Body { get; set; }
+        public string Subject { get; set; }
+        public bool IncludeDebtInfo { get; set; }
     }
 }

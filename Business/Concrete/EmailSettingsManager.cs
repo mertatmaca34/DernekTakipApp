@@ -66,7 +66,6 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<EmailSettings>();
             }
-
         }
 
         public IDataResult<List<EmailSettings>> GetAll(Expression<Func<EmailSettings, bool>>? filter)
@@ -76,6 +75,10 @@ namespace Business.Concrete
 
         public IResult Update(EmailSettings emailSettings)
         {
+            var res = _emailSettingsDal.Get(e => e.Id == 1);
+
+            emailSettings.Id = res.Id;
+
             _emailSettingsDal.Update(emailSettings);
 
             return new SuccessResult(Messages.EmailSettingsUpdated);
@@ -84,7 +87,7 @@ namespace Business.Concrete
         private IResult CheckEmailSettingsExist(EmailSettings emailSettings)
         {
             if (emailSettings == null) return new ErrorResult(Messages.IncompleteInfo);
-            var res = _emailSettingsDal.Get(e=> e.Id == emailSettings.Id);
+            var res = _emailSettingsDal.Get(e=> e.Id == 1);
 
             if (res != null)
             {
@@ -94,7 +97,6 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.DataNotFound);
             }
-
         }
     }
 }

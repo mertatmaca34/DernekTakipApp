@@ -10,5 +10,6 @@ namespace Entities.Concrete
         public string? KanGrubu { get; set; }
         public string? Sehir { get; set; }
         public bool Aktif { get; set; }
+        public string? Mail { get; set; }
     }
 }

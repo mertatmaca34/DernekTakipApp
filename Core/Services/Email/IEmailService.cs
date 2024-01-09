@@ -8,6 +8,7 @@ namespace Core.Services.Email
 {
     public interface IEmailService
     {
-        public Task<string> MailSend(string mailName, string subject, string body);
+        public Task<string> MailSend(string host, string port, string userName, string password, bool useSSL,
+            bool useDefaultCredentials, string mailName, string subject, string body);
     }
 }

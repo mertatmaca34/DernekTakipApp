@@ -16,20 +16,22 @@ namespace DernekTakipApp.Forms
 {
     public partial class FormMemberDebts : Form
     {
-        IMemberManager _memberManager;
-        IDuePaymentManager _duePaymentManager;
-        IDueManager _dueManager;
+        private IMemberManager _memberManager;
+        private IDuePaymentManager _duePaymentManager;
+        private IDueManager _dueManager;
+        private IEmailSettingsManager _emailSettingsManager;
 
         List<Member> _members;
         List<DuePayment> _duePayments;
 
-        public FormMemberDebts(IMemberManager memberManager, IDuePaymentManager duePaymentManager, IDueManager dueManager)
+        public FormMemberDebts(IMemberManager memberManager, IDuePaymentManager duePaymentManager, IDueManager dueManager, IEmailSettingsManager emailSettingsManager)
         {
             InitializeComponent();
 
             _duePaymentManager = duePaymentManager;
             _memberManager = memberManager;
             _dueManager = dueManager;
+            _emailSettingsManager = emailSettingsManager;
 
             _members = _memberManager.GetAll().Data;
             _duePayments = _duePaymentManager.GetAll().Data;
@@ -115,11 +117,37 @@ namespace DernekTakipApp.Forms
 
         private async void ButtonSendMails_Click(object sender, EventArgs e)
         {
-            EmailService emailService = new EmailService();
+            var _emailSettings = _emailSettingsManager.Get(e => e.Id == 1)?.Data;
 
-            var res = await emailService.MailSend("mertatmaca34@gmail.com", "bu konu", "icerik");
+            if (_emailSettings != null)
+            {
+                EmailService emailService = new EmailService();
 
-            MessageBox.Show(res);
+                foreach (var member in _members)
+                {
+                    var totalDebt = CalculateTotalDebt(member.TcKimlik, PaymentType.Debt);
+
+                    if (totalDebt > 0)
+                    {
+                        var body = _emailSettings.Body;
+
+                        if (_emailSettings.IncludeDebtInfo)
+                        {
+                            body += $"Borç tutarınız: {totalDebt} TL'dir.";
+                        }
+
+                        var res = await emailService.MailSend(_emailSettings.Host, _emailSettings.Port,
+                            _emailSettings.UserName, _emailSettings.Password, _emailSettings.UseSSL,
+                            _emailSettings.UseDefaultCredentials, member.Mail, _emailSettings.Subject, body);
+
+                        MessageBox.Show(res);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen önce mail ayarlarını yapın.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

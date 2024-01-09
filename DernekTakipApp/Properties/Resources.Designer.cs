@@ -103,6 +103,16 @@ namespace DernekTakipApp.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap house_24px {
+            get {
+                object obj = ResourceManager.GetObject("house_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap mail_24px {
             get {
                 object obj = ResourceManager.GetObject("mail_24px", resourceCulture);
