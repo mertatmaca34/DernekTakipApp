@@ -2,6 +2,7 @@ using Business.Abstract;
 using DernekTakipApp.Forms;
 using DernekTakipApp.Utils;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace DernekTakipApp
 {
@@ -66,9 +67,8 @@ namespace DernekTakipApp
             }
         }
 
-        private void PanelContent_Paint(object sender, PaintEventArgs e)
+        private void AssignDefaultValues()
         {
-
 
         }
     }
