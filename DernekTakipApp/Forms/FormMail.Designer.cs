@@ -236,6 +236,8 @@
             // 
             CheckBoxUseSSL.Anchor = AnchorStyles.None;
             CheckBoxUseSSL.AutoSize = true;
+            CheckBoxUseSSL.Checked = true;
+            CheckBoxUseSSL.CheckState = CheckState.Checked;
             CheckBoxUseSSL.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             CheckBoxUseSSL.Location = new Point(739, 395);
             CheckBoxUseSSL.Name = "CheckBoxUseSSL";
