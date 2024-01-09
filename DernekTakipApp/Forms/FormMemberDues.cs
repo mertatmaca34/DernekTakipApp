@@ -20,7 +20,7 @@ namespace DernekTakipApp.Forms
             _dueManager = dueManager;
             _member = member;
 
-            ComboBoxYear.Text = "2023";
+            ComboBoxYear.Text = "2024";
             LabelMemberName.Text = $"ÜYE: {_member.AdSoyad}";
 
             _dueList = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text)).Data.ToList();
@@ -36,7 +36,7 @@ namespace DernekTakipApp.Forms
             var selectedYearDues = _dueManager.GetAll(d => d.DueDate.Year == Convert.ToInt32(ComboBoxYear.Text)).Data.ToList();
             var memberPayments = _duePaymentManager.GetAll(d => d.MemberTC == _member.TcKimlik).Data.ToList();
 
-            if (memberPayments.Count > 0)
+            if (memberPayments.Count > 0 && memberPayments.Any(d => d.DueId == selectedYearDues[0].Id))
             {
                 TextBoxOcakOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[0].Id)?.Data.PaymentAmount.ToString() ?? "0";
                 TextBoxSubatOdenen.Text = _duePaymentManager.Get(d => d.DueId == selectedYearDues[1].Id)?.Data.PaymentAmount.ToString() ?? "0";

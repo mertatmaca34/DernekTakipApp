@@ -33,12 +33,12 @@
             panel1 = new Panel();
             label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            zedGraphControl3 = new ZedGraph.ZedGraphControl();
-            zedGraphControl2 = new ZedGraph.ZedGraphControl();
+            ZedGraphSehirlereGoreDagilim = new ZedGraph.ZedGraphControl();
+            ZedGraphAidatGelirleriYillik = new ZedGraph.ZedGraphControl();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            zedGraphControl1 = new ZedGraph.ZedGraphControl();
+            ZedGraphAylaraGoreAidat = new ZedGraph.ZedGraphControl();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -90,12 +90,12 @@
             tableLayoutPanel1.SetColumnSpan(tableLayoutPanel2, 2);
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(zedGraphControl3, 0, 3);
-            tableLayoutPanel2.Controls.Add(zedGraphControl2, 1, 1);
+            tableLayoutPanel2.Controls.Add(ZedGraphSehirlereGoreDagilim, 0, 3);
+            tableLayoutPanel2.Controls.Add(ZedGraphAidatGelirleriYillik, 1, 1);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
             tableLayoutPanel2.Controls.Add(label3, 1, 0);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
-            tableLayoutPanel2.Controls.Add(zedGraphControl1, 0, 1);
+            tableLayoutPanel2.Controls.Add(ZedGraphAylaraGoreAidat, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 122);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -109,38 +109,38 @@
             tableLayoutPanel2.Size = new Size(1002, 559);
             tableLayoutPanel2.TabIndex = 7;
             // 
-            // zedGraphControl3
+            // ZedGraphSehirlereGoreDagilim
             // 
-            tableLayoutPanel2.SetColumnSpan(zedGraphControl3, 2);
-            zedGraphControl3.Dock = DockStyle.Fill;
-            zedGraphControl3.Location = new Point(4, 302);
-            zedGraphControl3.Margin = new Padding(4, 3, 4, 3);
-            zedGraphControl3.Name = "zedGraphControl3";
-            zedGraphControl3.ScrollGrace = 0D;
-            zedGraphControl3.ScrollMaxX = 0D;
-            zedGraphControl3.ScrollMaxY = 0D;
-            zedGraphControl3.ScrollMaxY2 = 0D;
-            zedGraphControl3.ScrollMinX = 0D;
-            zedGraphControl3.ScrollMinY = 0D;
-            zedGraphControl3.ScrollMinY2 = 0D;
-            zedGraphControl3.Size = new Size(994, 213);
-            zedGraphControl3.TabIndex = 3;
+            tableLayoutPanel2.SetColumnSpan(ZedGraphSehirlereGoreDagilim, 2);
+            ZedGraphSehirlereGoreDagilim.Dock = DockStyle.Fill;
+            ZedGraphSehirlereGoreDagilim.Location = new Point(4, 302);
+            ZedGraphSehirlereGoreDagilim.Margin = new Padding(4, 3, 4, 3);
+            ZedGraphSehirlereGoreDagilim.Name = "ZedGraphSehirlereGoreDagilim";
+            ZedGraphSehirlereGoreDagilim.ScrollGrace = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMaxX = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMaxY = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMaxY2 = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMinX = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMinY = 0D;
+            ZedGraphSehirlereGoreDagilim.ScrollMinY2 = 0D;
+            ZedGraphSehirlereGoreDagilim.Size = new Size(994, 213);
+            ZedGraphSehirlereGoreDagilim.TabIndex = 3;
             // 
-            // zedGraphControl2
+            // ZedGraphAidatGelirleriYillik
             // 
-            zedGraphControl2.Dock = DockStyle.Fill;
-            zedGraphControl2.Location = new Point(505, 43);
-            zedGraphControl2.Margin = new Padding(4, 3, 4, 3);
-            zedGraphControl2.Name = "zedGraphControl2";
-            zedGraphControl2.ScrollGrace = 0D;
-            zedGraphControl2.ScrollMaxX = 0D;
-            zedGraphControl2.ScrollMaxY = 0D;
-            zedGraphControl2.ScrollMaxY2 = 0D;
-            zedGraphControl2.ScrollMinX = 0D;
-            zedGraphControl2.ScrollMinY = 0D;
-            zedGraphControl2.ScrollMinY2 = 0D;
-            zedGraphControl2.Size = new Size(493, 213);
-            zedGraphControl2.TabIndex = 2;
+            ZedGraphAidatGelirleriYillik.Dock = DockStyle.Fill;
+            ZedGraphAidatGelirleriYillik.Location = new Point(505, 43);
+            ZedGraphAidatGelirleriYillik.Margin = new Padding(4, 3, 4, 3);
+            ZedGraphAidatGelirleriYillik.Name = "ZedGraphAidatGelirleriYillik";
+            ZedGraphAidatGelirleriYillik.ScrollGrace = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMaxX = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMaxY = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMaxY2 = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMinX = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMinY = 0D;
+            ZedGraphAidatGelirleriYillik.ScrollMinY2 = 0D;
+            ZedGraphAidatGelirleriYillik.Size = new Size(493, 213);
+            ZedGraphAidatGelirleriYillik.TabIndex = 2;
             // 
             // label2
             // 
@@ -175,21 +175,21 @@
             label4.TabIndex = 0;
             label4.Text = "Şehirlere Göre Üye Dağılımları";
             // 
-            // zedGraphControl1
+            // ZedGraphAylaraGoreAidat
             // 
-            zedGraphControl1.Dock = DockStyle.Fill;
-            zedGraphControl1.Location = new Point(4, 43);
-            zedGraphControl1.Margin = new Padding(4, 3, 4, 3);
-            zedGraphControl1.Name = "zedGraphControl1";
-            zedGraphControl1.ScrollGrace = 0D;
-            zedGraphControl1.ScrollMaxX = 0D;
-            zedGraphControl1.ScrollMaxY = 0D;
-            zedGraphControl1.ScrollMaxY2 = 0D;
-            zedGraphControl1.ScrollMinX = 0D;
-            zedGraphControl1.ScrollMinY = 0D;
-            zedGraphControl1.ScrollMinY2 = 0D;
-            zedGraphControl1.Size = new Size(493, 213);
-            zedGraphControl1.TabIndex = 1;
+            ZedGraphAylaraGoreAidat.Dock = DockStyle.Fill;
+            ZedGraphAylaraGoreAidat.Location = new Point(4, 43);
+            ZedGraphAylaraGoreAidat.Margin = new Padding(4, 3, 4, 3);
+            ZedGraphAylaraGoreAidat.Name = "ZedGraphAylaraGoreAidat";
+            ZedGraphAylaraGoreAidat.ScrollGrace = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMaxX = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMaxY = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMaxY2 = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMinX = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMinY = 0D;
+            ZedGraphAylaraGoreAidat.ScrollMinY2 = 0D;
+            ZedGraphAylaraGoreAidat.Size = new Size(493, 213);
+            ZedGraphAylaraGoreAidat.TabIndex = 1;
             // 
             // FormHomePage
             // 
@@ -219,8 +219,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private ZedGraph.ZedGraphControl zedGraphControl3;
-        private ZedGraph.ZedGraphControl zedGraphControl2;
-        private ZedGraph.ZedGraphControl zedGraphControl1;
+        private ZedGraph.ZedGraphControl ZedGraphSehirlereGoreDagilim;
+        private ZedGraph.ZedGraphControl ZedGraphAidatGelirleriYillik;
+        private ZedGraph.ZedGraphControl ZedGraphAylaraGoreAidat;
     }
 }

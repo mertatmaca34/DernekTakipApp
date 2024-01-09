@@ -164,6 +164,7 @@
             PanelContent.Name = "PanelContent";
             PanelContent.Size = new Size(1174, 681);
             PanelContent.TabIndex = 2;
+            PanelContent.Paint += PanelContent_Paint;
             // 
             // FormMain
             // 

@@ -65,5 +65,11 @@ namespace DernekTakipApp
                 activeForm.Size = PanelContent.Size;
             }
         }
+
+        private void PanelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+
+        }
     }
 }

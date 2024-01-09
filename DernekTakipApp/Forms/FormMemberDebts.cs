@@ -149,5 +149,10 @@ namespace DernekTakipApp.Forms
                 MessageBox.Show("Lütfen önce mail ayarlarını yapın.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void FormMemberDebts_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
