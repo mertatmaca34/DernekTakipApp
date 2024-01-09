@@ -71,6 +71,7 @@ namespace DernekTakipApp.Forms
                         var bloodGroup = row.Cells[6].Value.ToString()!;
                         var city = row.Cells[7].Value.ToString()!;
                         var memberStatement = bool.Parse(row.Cells[8].Value.ToString()!);
+                        var mail = row.Cells[9].Value.ToString()!;
 
                         FormNewMember formNewMember = new(_memberManager);
 
@@ -80,6 +81,7 @@ namespace DernekTakipApp.Forms
                         formNewMember.ComboBoxCity.Text = city;
                         formNewMember.dateTimePicker1.Value = registerDate;
                         formNewMember.CheckBoxMemberStatement.Checked = memberStatement;
+                        formNewMember.TextBoxMail.Text = mail;
                         formNewMember.LabelHeaderText.Text = "Üye Düzenle";
 
                         formNewMember.Text = "Üye Düzenle";

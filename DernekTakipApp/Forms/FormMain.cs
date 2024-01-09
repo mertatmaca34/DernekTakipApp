@@ -25,7 +25,7 @@ namespace DernekTakipApp
         private void FormMain_Load(object sender, EventArgs e)
         {
             PageChange.Change(PanelContent, this, new FormMembers(_memberManager, _dueManager, _duePaymentManager));
-            RoundedCorners.MakeRounded(ButtonMembers, ButtonDues, ButtonPayments, ButtonMail);
+            RoundedCorners.MakeRounded(ButtonMembers, ButtonDues, ButtonPayments, ButtonMail, ButtonHome);
         }
 
         private void ButtonMembers_Click(object sender, EventArgs e)
@@ -50,6 +50,12 @@ namespace DernekTakipApp
         {
             PageChange.Change(PanelContent, this, new FormMail(_emailSettingsManager));
             ColorTransformations.Replace(TableLayoutPanelLeftBar, ButtonMail);
+        }
+
+        private void ButtonHome_Click(object sender, EventArgs e)
+        {
+            PageChange.Change(PanelContent, this, new FormHomePage(_memberManager, _duePaymentManager, _dueManager));
+            ColorTransformations.Replace(TableLayoutPanelLeftBar, ButtonHome);
         }
 
         private void FormMain_SizeChanged(object sender, EventArgs e)

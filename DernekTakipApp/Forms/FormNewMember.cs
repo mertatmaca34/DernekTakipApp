@@ -23,6 +23,7 @@ namespace DernekTakipApp.Forms
             TextBoxTc.Text = member.TcKimlik;
             ComboBoxBloodGroup.Text = member.KanGrubu;
             ComboBoxCity.Text = member.Sehir;
+            TextBoxMail.Text = member.Mail;
 
             InitializeComponent();
         }

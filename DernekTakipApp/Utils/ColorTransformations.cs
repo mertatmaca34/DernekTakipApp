@@ -24,6 +24,9 @@
                             case "ButtonMail":
                                 _button.BackColor = Color.White;
                                 break;
+                            case "ButtonHome":
+                                _button.BackColor = Color.White;
+                                break;
                         }
                     }
                     else
@@ -40,6 +43,9 @@
                                 _button.BackColor = Color.FromArgb(230, 230, 230);
                                 break;
                             case "ButtonMail":
+                                _button.BackColor = Color.FromArgb(230, 230, 230);
+                                break;
+                            case "ButtonHome":
                                 _button.BackColor = Color.FromArgb(230, 230, 230);
                                 break;
                         }

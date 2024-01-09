@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             TableLayoutPanelLeftBar = new TableLayoutPanel();
-            button1 = new Button();
+            ButtonHome = new Button();
             ButtonMail = new Button();
             ButtonPayments = new Button();
             ButtonDues = new Button();
@@ -44,7 +44,7 @@
             TableLayoutPanelLeftBar.BackColor = Color.White;
             TableLayoutPanelLeftBar.ColumnCount = 1;
             TableLayoutPanelLeftBar.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            TableLayoutPanelLeftBar.Controls.Add(button1, 0, 0);
+            TableLayoutPanelLeftBar.Controls.Add(ButtonHome, 0, 0);
             TableLayoutPanelLeftBar.Controls.Add(ButtonMail, 0, 4);
             TableLayoutPanelLeftBar.Controls.Add(ButtonPayments, 0, 3);
             TableLayoutPanelLeftBar.Controls.Add(ButtonDues, 0, 2);
@@ -64,23 +64,24 @@
             TableLayoutPanelLeftBar.Size = new Size(90, 681);
             TableLayoutPanelLeftBar.TabIndex = 1;
             // 
-            // button1
+            // ButtonHome
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.DimGray;
-            button1.Image = Properties.Resources.house_24px;
-            button1.Location = new Point(8, 8);
-            button1.Margin = new Padding(8);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 68);
-            button1.TabIndex = 5;
-            button1.Text = "Anasayfa";
-            button1.TextAlign = ContentAlignment.BottomCenter;
-            button1.UseVisualStyleBackColor = false;
+            ButtonHome.Dock = DockStyle.Fill;
+            ButtonHome.FlatAppearance.BorderSize = 0;
+            ButtonHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 230, 230);
+            ButtonHome.FlatStyle = FlatStyle.Flat;
+            ButtonHome.Font = new Font("Calibri", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonHome.ForeColor = Color.DimGray;
+            ButtonHome.Image = Properties.Resources.house_24px;
+            ButtonHome.Location = new Point(8, 8);
+            ButtonHome.Margin = new Padding(8);
+            ButtonHome.Name = "ButtonHome";
+            ButtonHome.Size = new Size(74, 68);
+            ButtonHome.TabIndex = 5;
+            ButtonHome.Text = "Anasayfa";
+            ButtonHome.TextAlign = ContentAlignment.BottomCenter;
+            ButtonHome.UseVisualStyleBackColor = false;
+            ButtonHome.Click += ButtonHome_Click;
             // 
             // ButtonMail
             // 
@@ -190,6 +191,6 @@
         private Button ButtonDues;
         private Button ButtonMembers;
         private Panel PanelContent;
-        private Button button1;
+        private Button ButtonHome;
     }
 }
